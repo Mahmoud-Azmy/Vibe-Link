@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vibe_link/core/features/onBoarding/on_boardign.dart';
+import 'package:vibe_link/core/theme/app_theme.dart';
+import 'package:vibe_link/features/onBoarding/on_boardign.dart';
 
 class VibeLink extends StatelessWidget {
   const VibeLink({super.key});
@@ -9,7 +10,7 @@ class VibeLink extends StatelessWidget {
     return MaterialApp(
       title: 'VibeLink',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: appTheme(),
       home: const OnBoardign(),
     );
   }
