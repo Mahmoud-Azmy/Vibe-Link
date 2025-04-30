@@ -7,6 +7,29 @@ VibeLink is a modern Flutter-based social networking app that connects users thr
 Built using **Flutter**, this cross-platform app works seamlessly on both iOS and Android.
 
 ---
+##  App Structure
+
+lib/
+├── core/
+│   ├── constants/ # Colors, strings, themes
+│   ├── error/ # Failure models
+│   └── utils/ # Helpers, extensions
+├── data/
+│   ├── datasources/ # Remote and local data sources
+│   ├── models/ # Data models
+│   └── repositories/ # Repository implementations
+├── domain/
+│   ├── entities/ # Business logic models
+│   ├── repositories/ # Abstract repositories
+│   └── usecases/ # Business logic use cases
+├── presentation/
+│   ├── blocs/ # BLoC files for state management
+│   ├── pages/ # UI screens
+│   └── widgets/ # Reusable UI components
+├── injection.dart # Dependency injection setup
+└── main.dart
+
+---
 
 ## 🔧 Features
 
