@@ -1,16 +1,41 @@
-# vibe_link
+# VibeLink – Connect Through Good Vibes 🌟
 
-A new Flutter project.
+VibeLink is a modern Flutter-based social networking app that connects users through shared moods, interests, and moments. Whether you're sharing your daily vibe or finding like-minded people, VibeLink makes it easy and fun!
 
-## Getting Started
+Built using **Flutter**, this cross-platform app works seamlessly on both iOS and Android.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🔧 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+✅ Profile creation  
+✅ Story sharing  
+✅ Feed & post interaction  
+✅ Group/community discovery  
+✅ Real-time engagement (likes, comments)  
+✅ Dark/Light mode support
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🎨 UI Design
+
+The UI is inspired by sleek, community-focused design principles. It uses soft colors, smooth animations, and intuitive navigation to create an inviting user experience.
+
+UI Kit Source: [Figma - Social App UI Kit](https://www.figma.com/design/RptfnnQ1f6nFrvzd1G300w/Social-App---Free-UI-Kit-%F0%9F%93%B1--Community-?node-id=16-1837&p=f&t=NWI5GHXrNhkSES0A-0)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Flutter SDK installed
+- Android Studio / Xcode (for mobile builds)
+- Git
+
+### Installation
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/yourusername/vibelink.git
+   ```
