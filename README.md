@@ -1,5 +1,7 @@
 # VibeLink – Connect Through Good Vibes 🌟
 
+![alt text](image.png)
+
 VibeLink is a modern Flutter-based social networking app that connects users through shared moods, interests, and moments. Whether you're sharing your daily vibe or finding like-minded people, VibeLink makes it easy and fun!
 
 Built using **Flutter**, this cross-platform app works seamlessly on both iOS and Android.
