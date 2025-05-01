@@ -1,5 +1,6 @@
 class AppStrings {
   static const String appName = 'VibeLink';
+  static const String appTagline = 'SHARE • INSPIRE • CONNECT';
   static const String welcomeMessage = 'Welcome to VibeLink!';
   static const String loginButton = 'Login';
   static const String signupButton = 'Sign Up';

@@ -40,10 +40,10 @@ flutter:
     - assets/svgs/
 
   #   - images/a_dot_ham.jpeg
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: CircularStd
+      fonts:
+        - asset: assets/fonts/circular-std-medium-500.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
