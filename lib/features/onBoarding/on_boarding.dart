@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
-import 'package:vibe_link/core/utils/app_consts.dart';
+import 'package:vibe_link/core/utils/app_router.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/onBoarding/widgets/diamond_image_layout.dart';
 
-class OnBoardign extends StatelessWidget {
-  const OnBoardign({super.key});
+class OnBoarding extends StatelessWidget {
+  const OnBoarding({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +25,7 @@ class OnBoardign extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'Vibe Link',
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontFamily: AppConsts.fontFamilyCircularStd,
-                ),
-              ),
+              Text(AppStrings.appName, style: AppTextStyles.font40Bold),
               SizedBox(height: 40),
               DiamondImageLayout(),
               SizedBox(height: 40),
@@ -45,7 +39,9 @@ class OnBoardign extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(context).go(AppRouter.loginView);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white.withOpacity(0.2),
                   foregroundColor: Colors.white,
