@@ -3,14 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
-import 'package:vibe_link/core/utils/app_router.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_button.dart';
-import 'package:vibe_link/features/auth/presentation/widgets/login_by.dart';
-import 'package:vibe_link/features/auth/presentation/widgets/login_email_and_password.dart';
+import 'package:vibe_link/features/auth/presentation/widgets/sign_up_email_and_password.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,48 +65,28 @@ class LoginView extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      LoginEmailAndPassword(),
-                      // Forgot Password Link
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            AppStrings.forgotPassword,
-                            style: AppTextStyles.font14Grey,
-                          ),
-                        ),
-                      ),
+                      SignUpEmailAndPassword(),
                       SizedBox(height: 20.h),
                       // Log In Button
                       CustomButton(
-                        text: AppStrings.loginButton,
+                        text: AppStrings.signupButton,
                         onPressed: () {},
                       ),
                       SizedBox(height: 20.h),
-                      // Or Log In By Text
-                      Text(
-                        AppStrings.orLoginBy,
-                        style: AppTextStyles.font14Grey,
-                      ),
-                      SizedBox(height: 20.h),
-                      // Social Login Buttons
-                      LoginBy(),
-                      SizedBox(height: 20.h),
-                      // Sign Up Link
+                      // Login Link
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            AppStrings.noAccount,
+                            AppStrings.alreadyHaveAccount,
                             style: AppTextStyles.font14Grey,
                           ),
                           TextButton(
                             onPressed: () {
-                              GoRouter.of(context).push(AppRouter.registerView);
+                              GoRouter.of(context).pop();
                             },
                             child: Text(
-                              AppStrings.signupButton,
+                              AppStrings.loginButton,
                               style: AppTextStyles.font14Bold,
                             ),
                           ),

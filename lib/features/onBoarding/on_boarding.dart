@@ -43,7 +43,7 @@ class OnBoarding extends StatelessWidget {
                   GoRouter.of(context).go(AppRouter.loginView);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white.withOpacity(0.2),
+                  backgroundColor: Colors.white.withAlpha(50),
                   foregroundColor: Colors.white,
                   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   shape: RoundedRectangleBorder(

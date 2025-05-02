@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:vibe_link/features/auth/presentation/views/login_view.dart';
+import 'package:vibe_link/features/auth/presentation/views/sign_up_view.dart';
 import 'package:vibe_link/features/onBoarding/on_boarding.dart';
 
 abstract class AppRouter {
@@ -19,6 +20,10 @@ abstract class AppRouter {
         GoRoute(
           path: loginView,
           builder: (context, state) => const LoginView(),
+        ),
+        GoRoute(
+          path: registerView,
+          builder: (context, state) => const SignUpView(),
         ),
       ],
     );

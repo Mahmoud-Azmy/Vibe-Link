@@ -16,7 +16,7 @@ class VibeLink extends StatelessWidget {
         title: 'VibeLink',
         debugShowCheckedModeBanner: false,
         theme: appTheme(),
-        routerConfig: AppRouter.router(AppRouter.loginView),
+        routerConfig: AppRouter.router(AppRouter.onBoarding),
       ),
     );
   }
