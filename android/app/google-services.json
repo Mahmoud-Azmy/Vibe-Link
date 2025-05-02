@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "742172189346",
+    "project_id": "vibe-link-cb482",
+    "storage_bucket": "vibe-link-cb482.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742172189346:android:cfe84ea89802feb0c2edfb",
+        "android_client_info": {
+          "package_name": "com.example.vibe_link"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoxJn6CxEwp80cWQdZ_77Z82lKMtdicW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
