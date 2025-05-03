@@ -35,4 +35,14 @@ abstract class Validators {
     }
     return null;
   }
+
+  static String? validateVerifyCode(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter the verification code';
+    }
+    if (value.length != 6) {
+      return 'Verification code must be 6 digits';
+    }
+    return null;
+  }
 }

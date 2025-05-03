@@ -6,6 +6,7 @@ import 'package:vibe_link/features/auth/presentation/controllers/login/login_cub
 import 'package:vibe_link/features/auth/presentation/controllers/signup/signup_cubit.dart';
 import 'package:vibe_link/features/auth/presentation/views/login_view.dart';
 import 'package:vibe_link/features/auth/presentation/views/sign_up_view.dart';
+import 'package:vibe_link/features/auth/presentation/views/verification_view.dart';
 import 'package:vibe_link/features/home/home_view.dart';
 import 'package:vibe_link/features/onBoarding/on_boarding.dart';
 
@@ -14,6 +15,7 @@ abstract class AppRouter {
   static const String registerView = '/register';
   static const String loginView = '/login';
   static const String homeView = '/home';
+  static const String verification = '/verification';
 
   static GoRouter router(String initialRoute) {
     return GoRouter(
@@ -23,10 +25,7 @@ abstract class AppRouter {
           path: onBoarding,
           builder: (context, state) => const OnBoarding(),
         ),
-        GoRoute(
-          path: homeView,
-          builder: (context, state) => const HomeView(),
-        ),
+        GoRoute(path: homeView, builder: (context, state) => const HomeView()),
         GoRoute(
           path: loginView,
           builder:
@@ -42,6 +41,10 @@ abstract class AppRouter {
                 create: (context) => SignupCubit(sl<AuthRepo>()),
                 child: const SignUpView(),
               ),
+        ),
+        GoRoute(
+          path: verification,
+          builder: (context, state) => const VerificationScreen(),
         ),
       ],
     );

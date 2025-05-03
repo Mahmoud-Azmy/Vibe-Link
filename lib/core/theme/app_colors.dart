@@ -8,4 +8,5 @@ class AppColors {
   static const fieldBackground = Color(0xFFF3F5F7);
   static const placeholder = Color(0xFFBDBDBD);
   static const buttonsColor = [Color(0xFF5151C6), Color(0xFF888BF4)];
+  static const primarBackground = Color(0xffF1F1FE);
 }

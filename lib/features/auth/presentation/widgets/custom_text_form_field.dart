@@ -14,6 +14,7 @@ class CustomTextFormField extends StatelessWidget {
     this.isObscured,
     this.hintText,
     this.suffixIcon,
+    this.textAlign,
   });
 
   final bool isPassword;
@@ -24,10 +25,12 @@ class CustomTextFormField extends StatelessWidget {
   final bool? isObscured;
   final String? hintText;
   final Widget? suffixIcon;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textAlign: textAlign ?? TextAlign.start,
       controller: controller,
       keyboardType: keyboardType,
       obscureText: isObscured ?? false,
@@ -39,6 +42,7 @@ class CustomTextFormField extends StatelessWidget {
         isDense: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
         hintText: hintText,
+        alignLabelWithHint: true,
         hintStyle: AppTextStyles.font16Placeholder,
         suffixIcon: suffixIcon,
         fillColor: AppColors.fieldBackground,

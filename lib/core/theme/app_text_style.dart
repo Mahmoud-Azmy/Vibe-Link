@@ -35,8 +35,14 @@ class AppTextStyles {
   );
   static const font16Placeholder = TextStyle(
     fontFamily: 'CircularStd',
-
     fontSize: 16,
     color: AppColors.placeholder,
   );
+  static const font18Bold = TextStyle(
+    fontFamily: 'CircularStd',
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
+  static const font16 = TextStyle(fontSize: 18, fontWeight: FontWeight.w400);
 }

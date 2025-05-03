@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
+import 'package:vibe_link/core/utils/app_strings.dart';
 
 void showSuccessDialog(BuildContext context) {
   showDialog(
@@ -10,9 +11,7 @@ void showSuccessDialog(BuildContext context) {
         title: const Text('Signup Successful'),
         content: const SingleChildScrollView(
           child: ListBody(
-            children: <Widget>[
-              Text('Congratulations, you have signed up successfully!'),
-            ],
+            children: <Widget>[Text(AppStrings.signupSuccessMessage)],
           ),
         ),
         actions: <Widget>[
@@ -23,7 +22,7 @@ void showSuccessDialog(BuildContext context) {
               disabledForegroundColor: Colors.grey.withOpacity(0.38),
             ),
             onPressed: () {
-              GoRouter.of(context).go(AppRouter.loginView);
+              GoRouter.of(context).go(AppRouter.verification);
             },
             child: const Text('Continue'),
           ),

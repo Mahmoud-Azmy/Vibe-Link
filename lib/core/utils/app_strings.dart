@@ -14,4 +14,12 @@ class AppStrings {
   static const String noDataMessage = 'No data available.';
   static const String loginSuccessful = 'Login successful';
   static const String signupSuccessful = 'Signup successful';
+  static const String signupSuccessMessage =
+      'Congratulations, you have signed up successfully!';
+  static const String verifyCodeMessage =
+      'A message with verification code was sent to your mobile phone.';
+  static const String verification = 'Verification';
+  static const String verifyCodeHint = 'Enter verification code';
+  static const String resendCode = "don't receive the code?";
+  static const String verifyButton = 'Verify';
 }
