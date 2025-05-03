@@ -13,6 +13,11 @@ abstract class AuthDataSource {
     required String name,
   });
   Future<void> resetUserPassword({required String email});
+  void creatUser({
+    required String name,
+    required String email,
+    required String uId,
+  });
 }
 
 class AuthDataSourceImpl implements AuthDataSource {
@@ -41,7 +46,6 @@ class AuthDataSourceImpl implements AuthDataSource {
       email: email,
       password: password,
     );
-    creatUser(name: name, email: email, uId: userCredential.user!.uid);
     return userCredential.user?.uid ?? '';
   }
 
@@ -50,6 +54,7 @@ class AuthDataSourceImpl implements AuthDataSource {
     await _firebaseService.sendPasswordResetEmail(email);
   }
 
+  @override
   void creatUser({
     required String name,
     required String email,
