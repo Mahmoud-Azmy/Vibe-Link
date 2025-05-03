@@ -97,18 +97,16 @@ class FirebaseService {
   }
 
   // Generic method for querying collections
-  Future< QuerySnapshot<Map<String, dynamic>>> queryCollection({
+  Future<QuerySnapshot<Map<String, dynamic>>> queryCollection({
     required String collection,
     Query<Map<String, dynamic>> Function(Query<Map<String, dynamic>>)?
     queryBuilder,
   }) async {
-  
-      Query<Map<String, dynamic>> query = _firestore.collection(collection);
-      if (queryBuilder != null) {
-        query = queryBuilder(query);
-      }
-      final snapshot = await query.get();
-      return snapshot;
-    
+    Query<Map<String, dynamic>> query = _firestore.collection(collection);
+    if (queryBuilder != null) {
+      query = queryBuilder(query);
+    }
+    final snapshot = await query.get();
+    return snapshot;
   }
 }
