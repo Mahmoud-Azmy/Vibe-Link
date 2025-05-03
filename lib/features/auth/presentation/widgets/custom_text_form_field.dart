@@ -10,7 +10,7 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType,
     required this.controller,
     this.onChanged,
-    this.validator,
+    required this.validator,
     this.isObscured,
     this.hintText,
     this.suffixIcon,
@@ -20,7 +20,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController controller;
   final void Function(String?)? onChanged;
-  final String? Function(String?)? validator;
+  final Function(String?) validator;
   final bool? isObscured;
   final String? hintText;
   final Widget? suffixIcon;
@@ -32,7 +32,9 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       obscureText: isObscured ?? false,
       onSaved: onChanged,
-      validator: validator,
+      validator: (value) {
+        return validator(value);
+      },
       decoration: InputDecoration(
         isDense: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
@@ -50,6 +52,14 @@ class CustomTextFormField extends StatelessWidget {
           borderSide: BorderSide(width: 0, color: Colors.white),
         ),
         enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.r),
+          borderSide: BorderSide(width: 0, color: Colors.white),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.r),
+          borderSide: BorderSide(width: 0, color: Colors.white),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.r),
           borderSide: BorderSide(width: 0, color: Colors.white),
         ),

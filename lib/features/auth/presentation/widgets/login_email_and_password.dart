@@ -27,15 +27,13 @@ class _LoginEmailAndPasswordState extends State<LoginEmailAndPassword> {
             hintText: 'Email',
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
-              Validators.validateEmail(value);
-              return null;
+              return Validators.validateEmail(value);
             },
           ),
           const SizedBox(height: 20),
           CustomTextFormField(
             validator: (value) {
-              Validators.validatePassword(value);
-              return null;
+              return Validators.validatePassword(value);
             },
             controller: context.read<LoginCubit>().passwordController,
             isPassword: true,

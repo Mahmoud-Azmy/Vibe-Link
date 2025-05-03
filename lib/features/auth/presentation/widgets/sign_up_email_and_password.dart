@@ -26,8 +26,7 @@ class _SignUpEmailAndPasswordState extends State<SignUpEmailAndPassword> {
             hintText: 'Name',
             keyboardType: TextInputType.name,
             validator: (vakue) {
-              Validators.validateUsername(vakue);
-              return null;
+              return Validators.validateUsername(vakue);
             },
           ),
           const SizedBox(height: 20),
@@ -36,16 +35,14 @@ class _SignUpEmailAndPasswordState extends State<SignUpEmailAndPassword> {
             hintText: 'Email',
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
-              Validators.validateEmail(value);
-              return null;
+              return Validators.validateEmail(value);
             },
           ),
           const SizedBox(height: 20),
           CustomTextFormField(
             controller: context.read<SignupCubit>().passwordController,
             validator: (value) {
-              Validators.validatePassword(value);
-              return null;
+              return Validators.validatePassword(value);
             },
             isPassword: true,
             hintText: 'Password',

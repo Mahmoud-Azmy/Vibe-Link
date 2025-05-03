@@ -14,9 +14,9 @@ class SignupCubit extends Cubit<SignupState> {
   void signUp() async {
     emit(SignupState.loading());
     final result = await _authRepo.signUpUseUser(
-      email: 'azmtA@example.com',
-      password: 'Mahmoud0@12',
-      name: 'Mahmoud',
+      email: emailController.text,
+      password: passwordController.text,
+      name: nameController.text,
     );
     result.fold(
       (failure) {
