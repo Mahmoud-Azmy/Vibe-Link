@@ -28,11 +28,13 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       keyboardType: keyboardType,
       obscureText: isObscured ?? false,
       onSaved: onChanged,
       validator: validator,
       decoration: InputDecoration(
+        isDense: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
         hintText: hintText,
         hintStyle: AppTextStyles.font16Placeholder,
