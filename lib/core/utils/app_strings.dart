@@ -12,4 +12,6 @@ class AppStrings {
   static const String successMessage = 'Operation successful!';
   static const String loadingMessage = 'Loading...';
   static const String noDataMessage = 'No data available.';
+  static const String loginSuccessful = 'Login successful';
+  static const String signupSuccessful = 'Signup successful';
 }

@@ -7,7 +7,7 @@ class AuthRepo {
   final AuthDataSource _authDataSource;
 
   AuthRepo(this._authDataSource);
-
+/// loginUseUser method takes email and password as parameters and returns a Future of Either type. The Either type can either be a FirebaseFailure or a String, which represents the user ID.
   Future<Either<FirebaseFailure, String>> loginUseUser({
     required String email,
     required String password,
@@ -24,7 +24,7 @@ class AuthRepo {
       return Left(ServerFailure.fromGenericFirebaseError(e));
     }
   }
-
+/// signUpUseUser method takes email, password, and name as parameters and returns a Future of Either type. The Either type can either be a FirebaseFailure or a String, which represents the user ID.
   Future<Either<FirebaseFailure, String>> signUpUseUser({
     required String email,
     required String password,
