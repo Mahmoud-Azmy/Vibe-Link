@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
+import 'package:vibe_link/features/auth/presentation/controllers/login/login_cubit.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_button.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/login_by.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/login_email_and_password.dart';
@@ -83,7 +85,9 @@ class LoginView extends StatelessWidget {
                       // Log In Button
                       CustomButton(
                         text: AppStrings.loginButton,
-                        onPressed: () {},
+                        onPressed: () {
+                          onPressedLogin(context);
+                        },
                       ),
                       SizedBox(height: 20.h),
                       // Or Log In By Text
@@ -123,5 +127,10 @@ class LoginView extends StatelessWidget {
         ),
       ),
     );
+  }
+    void onPressedLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().login();
+    }
   }
 }

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
+import 'package:vibe_link/features/auth/presentation/controllers/signup/signup_cubit.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_button.dart';
+import 'package:vibe_link/features/auth/presentation/widgets/sign_up_bloc_listener.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/sign_up_email_and_password.dart';
 
 class SignUpView extends StatelessWidget {
@@ -70,7 +73,9 @@ class SignUpView extends StatelessWidget {
                       // Log In Button
                       CustomButton(
                         text: AppStrings.signupButton,
-                        onPressed: () {},
+                        onPressed: () {
+                          onPressedLogin(context);
+                        },
                       ),
                       SizedBox(height: 20.h),
                       // Login Link
@@ -92,6 +97,7 @@ class SignUpView extends StatelessWidget {
                           ),
                         ],
                       ),
+                      SignUpBlocListener(),
                     ],
                   ),
                 ),
@@ -101,5 +107,11 @@ class SignUpView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void onPressedLogin(BuildContext context) {
+    if (context.read<SignupCubit>().formKey.currentState!.validate()) {
+      context.read<SignupCubit>().signUp();
+    }
   }
 }

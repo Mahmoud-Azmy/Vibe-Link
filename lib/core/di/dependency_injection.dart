@@ -10,10 +10,14 @@ final sl = GetIt.instance;
 Future<void> getItInit() async {
   sl.registerLazySingleton(() => FirebaseAuth.instance);
   sl.registerLazySingleton(() => FirebaseFirestore.instance);
-  sl.registerLazySingleton<FirebaseService>(() => FirebaseService(
-        firebaseAuth: sl<FirebaseAuth>(),
-        firestore: sl<FirebaseFirestore>(),
-      ));
-  sl.registerLazySingleton<AuthDataSource>(() => AuthDataSourceImpl(sl<FirebaseService>()));
-  sl.registerLazySingleton<AuthRepo>(() => AuthRepo(sl<AuthDataSourceImpl>()));
+  sl.registerLazySingleton<FirebaseService>(
+    () => FirebaseService(
+      firebaseAuth: sl<FirebaseAuth>(),
+      firestore: sl<FirebaseFirestore>(),
+    ),
+  );
+  sl.registerLazySingleton<AuthDataSource>(
+    () => AuthDataSourceImpl(sl<FirebaseService>()),
+  );
+  sl.registerLazySingleton<AuthRepo>(() => AuthRepo(sl<AuthDataSource>()));
 }
