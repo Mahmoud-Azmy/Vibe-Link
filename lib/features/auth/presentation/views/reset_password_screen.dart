@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/components/gradient_text.dart';
 import 'package:vibe_link/core/theme/app_colors.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
+import 'package:vibe_link/core/utils/app_router.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/core/utils/validators.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_button.dart';
@@ -11,17 +13,16 @@ import 'package:vibe_link/features/auth/presentation/widgets/custom_container_me
 import 'package:vibe_link/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/three_overlapping_squares.dart';
 
-class VerificationScreen extends StatefulWidget {
-  const VerificationScreen({super.key});
+class ResetPasswordScreen extends StatefulWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
-  State<VerificationScreen> createState() => _VerificationScreenState();
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }
 
-class _VerificationScreenState extends State<VerificationScreen> {
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -82,34 +83,27 @@ class _VerificationScreenState extends State<VerificationScreen> {
                       children: [
                         GradientText(
                           colors: AppColors.buttonsColor,
-                          text: AppStrings.verification.toUpperCase(),
+                          text: AppStrings.typeYourEmail.toUpperCase(),
                           textStyle: AppTextStyles.font18Bold,
                         ),
                         SizedBox(height: 16.h),
                         CustomContainerMessage(
-                          message: AppStrings.verifyCodeMessage,
+                          message: AppStrings.typeYourEmail,
                         ),
                         SizedBox(height: 40.h),
                         CustomTextFormField(
-                          hintText: AppStrings.verifyCodeHint,
-                          textAlign: TextAlign.center,
+                          hintText: AppStrings.email,
                           controller: _controller,
                           validator: (value) {
                             return Validators.validateVerifyCode(value);
                           },
                         ),
-                        // Resend Code Text
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            AppStrings.resendCode.toUpperCase(),
-                            style: AppTextStyles.font14Grey,
-                          ),
-                        ),
                         SizedBox(height: 20.h),
                         CustomButton(
-                          text: AppStrings.verifyButton.toUpperCase(),
-                          onPressed: () {},
+                          text: AppStrings.send.toUpperCase(),
+                          onPressed: () {
+                            GoRouter.of(context).push(AppRouter.setNewPassword);
+                          },
                         ),
                         SizedBox(height: 40.h),
                         ThreeOverlappingSquares(),

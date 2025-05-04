@@ -22,4 +22,17 @@ class AppStrings {
   static const String verifyCodeHint = 'Enter verification code';
   static const String resendCode = "don't receive the code?";
   static const String verifyButton = 'Verify';
+  static const String typeYourEmail = 'Type your email';
+  static const String resetPasswordMessage =
+      'We will send you instruction on how to reset your password';
+  static const String resetPassword = 'Reset Password';
+  static const String email = 'Email';
+  static const String phoneNumber = 'Phone Number';
+  static const String passwordHint = 'Enter your password';
+  static const String name = 'Name';
+  static const String password = 'Password';
+  static const String send = 'Send';
+  static const String confirmPassword = 'Confirm Password';
+  static const String setNewPassword = 'Set New Password';
+  static const String typeYourNewPassword = 'Type your new password';
 }

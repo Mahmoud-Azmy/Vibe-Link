@@ -75,7 +75,9 @@ class LoginView extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            GoRouter.of(context).push(AppRouter.resetPassword);
+                          },
                           child: Text(
                             AppStrings.forgotPassword,
                             style: AppTextStyles.font14Grey,

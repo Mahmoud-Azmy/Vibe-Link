@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
+import 'package:vibe_link/core/components/gradient_text.dart';
+import 'package:vibe_link/core/theme/app_colors.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
-import 'package:vibe_link/core/utils/app_router.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
-import 'package:vibe_link/features/auth/presentation/controllers/signup/signup_cubit.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_button.dart';
-import 'package:vibe_link/features/auth/presentation/widgets/sign_up_bloc_listener.dart';
-import 'package:vibe_link/features/auth/presentation/widgets/sign_up_email_and_password.dart';
+import 'package:vibe_link/features/auth/presentation/widgets/custom_container_message.dart';
+import 'package:vibe_link/features/auth/presentation/widgets/set_new_password_user_input.dart';
+import 'package:vibe_link/features/auth/presentation/widgets/three_overlapping_squares.dart';
 
-class SignUpView extends StatelessWidget {
-  const SignUpView({super.key});
+class SetNewPasswordScreen extends StatelessWidget {
+  const SetNewPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +55,8 @@ class SignUpView extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.65,
-                padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 40.h),
+                height: MediaQuery.of(context).size.height * 0.7,
+                padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 30.h),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -68,44 +67,26 @@ class SignUpView extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SignUpEmailAndPassword(),
+                      GradientText(
+                        colors: AppColors.buttonsColor,
+                        text: AppStrings.setNewPassword.toUpperCase(),
+                        textStyle: AppTextStyles.font18Bold,
+                      ),
+                      SizedBox(height: 16.h),
+                      CustomContainerMessage(
+                        message: AppStrings.typeYourNewPassword,
+                      ),
+                      SizedBox(height: 40.h),
+                      SetNewPasswordUserInput(),
                       SizedBox(height: 20.h),
-                      // Log In Button
                       CustomButton(
-                        text: AppStrings.signupButton,
-                        onPressed: () {
-                          onPressedLogin(context);
-                        },
+                        text: AppStrings.send.toUpperCase(),
+                        onPressed: () {},
                       ),
-                      SizedBox(height: 20.h),
-                      // Login Link
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            AppStrings.alreadyHaveAccount,
-                            style: AppTextStyles.font14Grey,
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              GoRouter.of(context).pop();
-                            },
-                            child: Text(
-                              AppStrings.loginButton,
-                              style: AppTextStyles.font14Bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20.h),
-                      TextButton(
-                        onPressed: () {
-                          GoRouter.of(context).push(AppRouter.verification);
-                        },
-                        child: Text('Verify Code'),
-                      ),
-                      SignUpBlocListener(),
+                      SizedBox(height: 40.h),
+                      ThreeOverlappingSquares(),
                     ],
                   ),
                 ),
@@ -115,11 +96,5 @@ class SignUpView extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void onPressedLogin(BuildContext context) {
-    if (context.read<SignupCubit>().formKey.currentState!.validate()) {
-      context.read<SignupCubit>().signUp();
-    }
   }
 }
