@@ -54,8 +54,14 @@ class AuthRepo {
 
   Future<Either<FirebaseFailure, bool>> checkEmailVerification() async {
     try {
-      final isVerified = await _authDataSource.isEmailVerified();
-      return Right(isVerified);
+      final currentUser = _authDataSource.getCurrentUser();
+      if (currentUser == null) {
+        return Left(ServerFailure('No user is currently signed in'));
+      }
+
+      // Force reload of user data to get latest verification status
+      await currentUser.reload();
+      return Right(currentUser.emailVerified);
     } on FirebaseAuthException catch (e) {
       return Left(ServerFailure.fromFirebaseException(e));
     } catch (e) {
@@ -83,6 +89,17 @@ class AuthRepo {
   }) async {
     try {
       await _authDataSource.resetUserPassword(email: email);
+      return const Right(null);
+    } on FirebaseAuthException catch (e) {
+      return Left(ServerFailure.fromFirebaseException(e));
+    } catch (e) {
+      return Left(ServerFailure.fromGenericFirebaseError(e));
+    }
+  }
+
+  Future<Either<FirebaseFailure, void>> sendEmailVerification() async {
+    try {
+      await _authDataSource.sendEmailVerification();
       return const Right(null);
     } on FirebaseAuthException catch (e) {
       return Left(ServerFailure.fromFirebaseException(e));

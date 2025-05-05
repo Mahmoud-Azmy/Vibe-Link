@@ -32,12 +32,18 @@ class AppStrings {
   static const String name = 'Name';
   static const String password = 'Password';
   static const String send = 'Send';
+  static const String gotIt = 'Got it';
   static const String confirmPassword = 'Confirm Password';
   static const String setNewPassword = 'Set New Password';
   static const String typeYourNewPassword = 'Type your new password';
   static const String checkVerification = 'Check Verification';
   static const String completeRegistration = 'Complete Registration';
   static const String notVerified = 'Not verified yet';
+  static const String verified = 'Email is verified';
+  static const String verifiedMessage = 'Email is verified successfully!';
   static const String notVerifiedMessage =
       'Please verify your email address to complete the registration.';
+  static const String goToVerification = 'Go to Verification';
+  static const String goToHome = 'Go to Home';
+  static const String verificationEmailSent = 'Verification email resent';
 }

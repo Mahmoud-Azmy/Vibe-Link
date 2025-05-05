@@ -208,42 +208,138 @@ as String,
 
 
 class Verified implements VerificationState {
-  const Verified(this.isVerified);
+  const Verified();
   
 
- final  bool isVerified;
 
-/// Create a copy of VerificationState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$VerifiedCopyWith<Verified> get copyWith => _$VerifiedCopyWithImpl<Verified>(this, _$identity);
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Verified&&(identical(other.isVerified, isVerified) || other.isVerified == isVerified));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Verified);
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isVerified);
+int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'VerificationState.verified(isVerified: $isVerified)';
+  return 'VerificationState.verified()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class Unverified implements VerificationState {
+  const Unverified();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Unverified);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'VerificationState.unverified()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class EmailResent implements VerificationState {
+  const EmailResent();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmailResent);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'VerificationState.emailResent()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class VerificationCheckFailed implements VerificationState {
+  const VerificationCheckFailed(this.message);
+  
+
+ final  String message;
+
+/// Create a copy of VerificationState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$VerificationCheckFailedCopyWith<VerificationCheckFailed> get copyWith => _$VerificationCheckFailedCopyWithImpl<VerificationCheckFailed>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is VerificationCheckFailed&&(identical(other.message, message) || other.message == message));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,message);
+
+@override
+String toString() {
+  return 'VerificationState.verificationCheckFailed(message: $message)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $VerifiedCopyWith<$Res> implements $VerificationStateCopyWith<$Res> {
-  factory $VerifiedCopyWith(Verified value, $Res Function(Verified) _then) = _$VerifiedCopyWithImpl;
+abstract mixin class $VerificationCheckFailedCopyWith<$Res> implements $VerificationStateCopyWith<$Res> {
+  factory $VerificationCheckFailedCopyWith(VerificationCheckFailed value, $Res Function(VerificationCheckFailed) _then) = _$VerificationCheckFailedCopyWithImpl;
 @useResult
 $Res call({
- bool isVerified
+ String message
 });
 
 
@@ -251,19 +347,19 @@ $Res call({
 
 }
 /// @nodoc
-class _$VerifiedCopyWithImpl<$Res>
-    implements $VerifiedCopyWith<$Res> {
-  _$VerifiedCopyWithImpl(this._self, this._then);
+class _$VerificationCheckFailedCopyWithImpl<$Res>
+    implements $VerificationCheckFailedCopyWith<$Res> {
+  _$VerificationCheckFailedCopyWithImpl(this._self, this._then);
 
-  final Verified _self;
-  final $Res Function(Verified) _then;
+  final VerificationCheckFailed _self;
+  final $Res Function(VerificationCheckFailed) _then;
 
 /// Create a copy of VerificationState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? isVerified = null,}) {
-  return _then(Verified(
-null == isVerified ? _self.isVerified : isVerified // ignore: cast_nullable_to_non_nullable
-as bool,
+@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+  return _then(VerificationCheckFailed(
+null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

@@ -21,11 +21,14 @@ abstract class AuthDataSource {
   });
   Future<bool> isEmailVerified();
   Future<void> sendEmailVerification();
+  User? getCurrentUser();
 }
 
 class AuthDataSourceImpl implements AuthDataSource {
   final FirebaseService _firebaseService;
   AuthDataSourceImpl(this._firebaseService);
+  @override
+  User? getCurrentUser() => _firebaseService.getCurrentUser();
 
   @override
   Future<Either<FirebaseAuthException, (String, bool)>> loginUseUser({

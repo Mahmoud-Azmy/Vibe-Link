@@ -35,6 +35,7 @@ class LoginBlocListener extends StatelessWidget {
             title: AppStrings.notVerified,
             message: AppStrings.notVerifiedMessage,
             route: AppRouter.verification,
+            buttonTitle: AppStrings.goToVerification,
             context: context,
             userId: state.userId,
             email: state.email,

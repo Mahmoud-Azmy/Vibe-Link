@@ -29,6 +29,7 @@ class SignUpBlocListener extends StatelessWidget {
             title: AppStrings.signupSuccessful,
             message: AppStrings.signupSuccessMessage,
             route: AppRouter.verification,
+            buttonTitle: AppStrings.goToVerification,
             context: context,
             userId: state.userId,
             email: state.email,

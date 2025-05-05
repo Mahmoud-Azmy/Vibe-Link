@@ -8,11 +8,34 @@ class VerificationCubit extends Cubit<VerificationState> {
 
   Future<void> checkEmailVerification() async {
     emit(VerificationState.loading());
-    final result = await _authRepo.checkEmailVerification();
-    result.fold(
-      (failure) => emit(VerificationState.error(failure.errorMessage)),
-      (isVerified) => emit(VerificationState.verified(isVerified)),
-    );
+    try {
+      final result = await _authRepo.checkEmailVerification();
+
+      result.fold(
+        (failure) => emit(
+          VerificationState.verificationCheckFailed(failure.errorMessage),
+        ),
+        (isVerified) {
+          if (isVerified) {
+            emit(VerificationState.verified());
+          } else {
+            emit(VerificationState.unverified());
+          }
+        },
+      );
+    } catch (e) {
+      emit(VerificationState.error('An unexpected error occurred'));
+    }
+  }
+
+  Future<void> resendVerificationEmail() async {
+    emit(VerificationState.loading());
+    try {
+      await _authRepo.sendEmailVerification();
+      emit(VerificationState.emailResent());
+    } catch (e) {
+      emit(VerificationState.error('Failed to resend verification email'));
+    }
   }
 
   Future<void> createVerifiedUser({
@@ -21,14 +44,34 @@ class VerificationCubit extends Cubit<VerificationState> {
     required String uId,
   }) async {
     emit(VerificationState.loading());
-    final result = await _authRepo.createVerifiedUser(
-      name: name,
-      email: email,
-      uId: uId,
-    );
-    result.fold(
-      (failure) => emit(VerificationState.error(failure.errorMessage)),
-      (_) => emit(VerificationState.userCreated()),
-    );
+    try {
+      // Double-check verification status
+      final verificationResult = await _authRepo.checkEmailVerification();
+
+      verificationResult.fold(
+        (failure) => emit(
+          VerificationState.verificationCheckFailed(failure.errorMessage),
+        ),
+        (isVerified) async {
+          if (!isVerified) {
+            emit(VerificationState.unverified());
+            return;
+          }
+
+          final result = await _authRepo.createVerifiedUser(
+            name: name,
+            email: email,
+            uId: uId,
+          );
+
+          result.fold(
+            (failure) => emit(VerificationState.error(failure.errorMessage)),
+            (_) => emit(VerificationState.userCreated()),
+          );
+        },
+      );
+    } catch (e) {
+      emit(VerificationState.error('Failed to complete registration'));
+    }
   }
 }
