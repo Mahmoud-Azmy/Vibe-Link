@@ -17,7 +17,7 @@ class AppStrings {
   static const String signupSuccessMessage =
       'Congratulations, you have signed up successfully!';
   static const String verifyCodeMessage =
-      'A message with verification code was sent to your mobile phone.';
+      'A message with verification code was sent to your email.';
   static const String verification = 'Verification';
   static const String verifyCodeHint = 'Enter verification code';
   static const String resendCode = "don't receive the code?";
@@ -35,4 +35,9 @@ class AppStrings {
   static const String confirmPassword = 'Confirm Password';
   static const String setNewPassword = 'Set New Password';
   static const String typeYourNewPassword = 'Type your new password';
+  static const String checkVerification = 'Check Verification';
+  static const String completeRegistration = 'Complete Registration';
+  static const String notVerified = 'Not verified yet';
+  static const String notVerifiedMessage =
+      'Please verify your email address to complete the registration.';
 }

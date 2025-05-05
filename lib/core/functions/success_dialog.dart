@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vibe_link/core/utils/app_router.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 
-void showSuccessDialog(BuildContext context) {
+void showSuccessDialog({
+  required BuildContext context,
+  required String userId,
+  required String email,
+  required String name,
+  required String route,
+  required String message,
+  required String title,
+}) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('Signup Successful'),
-        content: const SingleChildScrollView(
-          child: ListBody(
-            children: <Widget>[Text(AppStrings.signupSuccessMessage)],
-          ),
+        title: Text(title),
+        content: SingleChildScrollView(
+          child: ListBody(children: <Widget>[Text(message)]),
         ),
         actions: <Widget>[
           TextButton(
@@ -22,9 +26,12 @@ void showSuccessDialog(BuildContext context) {
               disabledForegroundColor: Colors.grey.withOpacity(0.38),
             ),
             onPressed: () {
-              GoRouter.of(context).go(AppRouter.verification);
+              GoRouter.of(context).go(
+                route,
+                extra: {'userId': userId, 'email': email, 'name': name},
+              );
             },
-            child: const Text('Continue'),
+            child: const Text('Go to Verification'),
           ),
         ],
       );

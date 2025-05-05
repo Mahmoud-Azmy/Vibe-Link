@@ -4,9 +4,15 @@ import 'package:vibe_link/core/theme/app_colors.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.text, this.onPressed});
+  const CustomButton({
+    super.key,
+    required this.text,
+    this.onPressed,
+    this.child,
+  });
   final String text;
   final VoidCallback? onPressed;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +37,7 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
           ),
         ),
-        child: Text(text, style: AppTextStyles.font16Bold),
+        child: child ?? Text(text, style: AppTextStyles.font16Bold),
       ),
     );
   }

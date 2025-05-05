@@ -8,5 +8,9 @@ class LoginState with _$LoginState {
   const factory LoginState.loading() = Loading;
   const factory LoginState.success(String message) = Success;
   const factory LoginState.error(String message) = Error;
-  const factory LoginState.emailNotVerified(String email) = EmailNotVerified;
+  const factory LoginState.emailNotVerified({
+    required String email,
+    required String name,
+    required String userId,
+  }) = EmailNotVerified;
 }

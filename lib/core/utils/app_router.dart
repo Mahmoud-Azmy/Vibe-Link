@@ -48,7 +48,13 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: verification,
-          builder: (context, state) => const VerificationScreen(),
+          builder: (context, state) {
+            final extra = state.extra as Map<String, dynamic>?;
+            final userId = extra?['userId'] ?? '';
+            final email = extra?['email'] ?? '';
+            final name = extra?['name'] ?? '';
+            return VerificationScreen(userId: userId, email: email, name: name);
+          },
         ),
         GoRoute(
           path: resetPassword,

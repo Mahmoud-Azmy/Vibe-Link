@@ -242,10 +242,12 @@ as String,
 
 
 class EmailNotVerified implements LoginState {
-  const EmailNotVerified(this.email);
+  const EmailNotVerified({required this.email, required this.name, required this.userId});
   
 
  final  String email;
+ final  String name;
+ final  String userId;
 
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
@@ -257,16 +259,16 @@ $EmailNotVerifiedCopyWith<EmailNotVerified> get copyWith => _$EmailNotVerifiedCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmailNotVerified&&(identical(other.email, email) || other.email == email));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmailNotVerified&&(identical(other.email, email) || other.email == email)&&(identical(other.name, name) || other.name == name)&&(identical(other.userId, userId) || other.userId == userId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,email);
+int get hashCode => Object.hash(runtimeType,email,name,userId);
 
 @override
 String toString() {
-  return 'LoginState.emailNotVerified(email: $email)';
+  return 'LoginState.emailNotVerified(email: $email, name: $name, userId: $userId)';
 }
 
 
@@ -277,7 +279,7 @@ abstract mixin class $EmailNotVerifiedCopyWith<$Res> implements $LoginStateCopyW
   factory $EmailNotVerifiedCopyWith(EmailNotVerified value, $Res Function(EmailNotVerified) _then) = _$EmailNotVerifiedCopyWithImpl;
 @useResult
 $Res call({
- String email
+ String email, String name, String userId
 });
 
 
@@ -294,9 +296,11 @@ class _$EmailNotVerifiedCopyWithImpl<$Res>
 
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? email = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? email = null,Object? name = null,Object? userId = null,}) {
   return _then(EmailNotVerified(
-null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

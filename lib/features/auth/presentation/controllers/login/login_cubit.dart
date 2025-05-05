@@ -23,7 +23,13 @@ class LoginCubit extends Cubit<LoginState> {
       (tuple) {
         final (userId, isVerified) = tuple;
         if (!isVerified) {
-          emit(LoginState.emailNotVerified(emailController.text));
+          emit(
+            LoginState.emailNotVerified(
+              email: emailController.text,
+              userId: userId,
+              name: 'Unknown',
+            ),
+          );
           return;
         }
         emit(LoginState.success(AppStrings.loginSuccessful));
