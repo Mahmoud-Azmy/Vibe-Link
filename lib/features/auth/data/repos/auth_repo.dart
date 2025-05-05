@@ -9,16 +9,22 @@ class AuthRepo {
   AuthRepo(this._authDataSource);
 
   /// loginUseUser method takes email and password as parameters and returns a Future of Either type. The Either type can either be a FirebaseFailure or a String, which represents the user ID.
-  Future<Either<FirebaseFailure, String>> loginUseUser({
+  Future<Either<FirebaseFailure, (String, bool)>> loginUseUser({
     required String email,
     required String password,
   }) async {
     try {
-      final userId = await _authDataSource.loginUseUser(
+      final result = await _authDataSource.loginUseUser(
         email: email,
         password: password,
       );
-      return Right(userId);
+      return result.fold(
+        (error) => Left(ServerFailure.fromFirebaseException(error)),
+        (tuple) {
+          final (userId, isVerified) = tuple;
+          return Right((userId, isVerified));
+        },
+      );
     } on FirebaseAuthException catch (e) {
       return Left(ServerFailure.fromFirebaseException(e));
     } catch (e) {
@@ -71,6 +77,7 @@ class AuthRepo {
       return Left(ServerFailure.fromGenericFirebaseError(e));
     }
   }
+
   Future<Either<FirebaseFailure, void>> resetUserPassword({
     required String email,
   }) async {

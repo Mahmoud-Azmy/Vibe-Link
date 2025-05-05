@@ -1,9 +1,10 @@
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:vibe_link/core/network/firebase_service.dart';
 import 'package:vibe_link/features/auth/data/models/user_model.dart';
 
 abstract class AuthDataSource {
-  Future<String> loginUseUser({
+  Future<Either<FirebaseAuthException, (String, bool)>> loginUseUser({
     required String email,
     required String password,
   });
@@ -27,15 +28,19 @@ class AuthDataSourceImpl implements AuthDataSource {
   AuthDataSourceImpl(this._firebaseService);
 
   @override
-  Future<String> loginUseUser({
+  Future<Either<FirebaseAuthException, (String, bool)>> loginUseUser({
     required String email,
     required String password,
   }) async {
-    UserCredential userCredential = await _firebaseService.login(
+    final result = await _firebaseService.login(
       email: email,
       password: password,
     );
-    return userCredential.user?.uid ?? '';
+
+    return result.fold((error) => Left(error), (tuple) {
+      final (userCredential, isVerified) = tuple;
+      return Right((userCredential.user?.uid ?? '', isVerified));
+    });
   }
 
   @override

@@ -238,4 +238,70 @@ as String,
 
 }
 
+/// @nodoc
+
+
+class EmailNotVerified implements LoginState {
+  const EmailNotVerified(this.email);
+  
+
+ final  String email;
+
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EmailNotVerifiedCopyWith<EmailNotVerified> get copyWith => _$EmailNotVerifiedCopyWithImpl<EmailNotVerified>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmailNotVerified&&(identical(other.email, email) || other.email == email));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,email);
+
+@override
+String toString() {
+  return 'LoginState.emailNotVerified(email: $email)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $EmailNotVerifiedCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
+  factory $EmailNotVerifiedCopyWith(EmailNotVerified value, $Res Function(EmailNotVerified) _then) = _$EmailNotVerifiedCopyWithImpl;
+@useResult
+$Res call({
+ String email
+});
+
+
+
+
+}
+/// @nodoc
+class _$EmailNotVerifiedCopyWithImpl<$Res>
+    implements $EmailNotVerifiedCopyWith<$Res> {
+  _$EmailNotVerifiedCopyWithImpl(this._self, this._then);
+
+  final EmailNotVerified _self;
+  final $Res Function(EmailNotVerified) _then;
+
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? email = null,}) {
+  return _then(EmailNotVerified(
+null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 // dart format on

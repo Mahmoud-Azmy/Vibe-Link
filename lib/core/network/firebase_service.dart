@@ -30,16 +30,20 @@ class FirebaseService {
     );
   }
 
-  /// Sign in with email and password
-  /// Returns a [UserCredential] on success .
-  Future<UserCredential> login({
+  Future<Either<FirebaseAuthException, (UserCredential, bool)>> login({
     required String email,
     required String password,
   }) async {
-    return await _firebaseAuth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+    try {
+      UserCredential userCredential = await _firebaseAuth
+          .signInWithEmailAndPassword(email: email, password: password);
+      // Reload to get latest email verification status
+      await userCredential.user?.reload();
+      bool isVerified = userCredential.user?.emailVerified ?? false;
+      return Right((userCredential, isVerified));
+    } on FirebaseAuthException catch (e) {
+      return Left(e);
+    }
   }
 
   Future<void> sendPasswordResetEmail(String email) async {
