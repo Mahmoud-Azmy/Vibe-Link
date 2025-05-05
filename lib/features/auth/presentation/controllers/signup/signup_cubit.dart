@@ -23,7 +23,14 @@ class SignupCubit extends Cubit<SignupState> {
         emit(SignupState.error(failure.errorMessage));
       },
       (userId) {
-        emit(SignupState.success(AppStrings.signupSuccessful));
+        emit(
+          SignupState.success(
+            message: AppStrings.signupSuccessMessage,
+            userId: userId,
+            email: emailController.text,
+            name: nameController.text,
+          ),
+        );
       },
     );
   }

@@ -13,11 +13,13 @@ abstract class AuthDataSource {
     required String name,
   });
   Future<void> resetUserPassword({required String email});
-  void creatUser({
+  Future<void> creatUser({
     required String name,
     required String email,
     required String uId,
   });
+  Future<bool> isEmailVerified();
+  Future<void> sendEmailVerification();
 }
 
 class AuthDataSourceImpl implements AuthDataSource {
@@ -55,11 +57,11 @@ class AuthDataSourceImpl implements AuthDataSource {
   }
 
   @override
-  void creatUser({
+  Future<void> creatUser({
     required String name,
     required String email,
     required String uId,
-  }) {
+  }) async {
     UserModel userModel = UserModel(
       email: email,
       phone: 'phone',
@@ -71,17 +73,20 @@ class AuthDataSourceImpl implements AuthDataSource {
           'https://img.freepik.com/free-photo/front-view-smiley-woman-with-fireworks_52683-98180.jpg?w=1060&t=st=1692707618~exp=1692708218~hmac=973faf1ef60fc8b84b6061254022ecd915ad4efe7057f4eaa4589f782c42414f',
       bio: 'write your bio ..',
     );
-    _firebaseService.saveData(
+    await _firebaseService.saveData(
       collection: 'users',
       documentId: uId,
       data: userModel.toMap(),
     );
-    // FirebaseFirestore.instance
-    //     .collection('users')
-    //     .doc(uId)
-    //     .set(userModel.toMap())
-    //     .then((value) {
-    //       debugPrint(userModel.name);
-    //     });
+  }
+
+  @override
+  Future<bool> isEmailVerified() async {
+    return await _firebaseService.isEmailVerified();
+  }
+
+  @override
+  Future<void> sendEmailVerification() async {
+    await _firebaseService.sendEmailVerification();
   }
 }

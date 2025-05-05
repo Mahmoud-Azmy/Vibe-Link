@@ -24,6 +24,7 @@ class SignUpBlocListener extends StatelessWidget {
             break;
           case Success:
             Navigator.pop(context);
+            //and go to the Verification screen
             showSuccessDialog(context);
             break;
           case Error:

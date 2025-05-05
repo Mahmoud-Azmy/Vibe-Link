@@ -110,10 +110,13 @@ String toString() {
 
 
 class Success implements SignupState {
-  const Success(this.message);
+  const Success({required this.message, required this.userId, required this.email, required this.name});
   
 
  final  String message;
+ final  String userId;
+ final  String email;
+ final  String name;
 
 /// Create a copy of SignupState
 /// with the given fields replaced by the non-null parameter values.
@@ -125,16 +128,16 @@ $SuccessCopyWith<Success> get copyWith => _$SuccessCopyWithImpl<Success>(this, _
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success&&(identical(other.message, message) || other.message == message));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success&&(identical(other.message, message) || other.message == message)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.email, email) || other.email == email)&&(identical(other.name, name) || other.name == name));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,message);
+int get hashCode => Object.hash(runtimeType,message,userId,email,name);
 
 @override
 String toString() {
-  return 'SignupState.success(message: $message)';
+  return 'SignupState.success(message: $message, userId: $userId, email: $email, name: $name)';
 }
 
 
@@ -145,7 +148,7 @@ abstract mixin class $SuccessCopyWith<$Res> implements $SignupStateCopyWith<$Res
   factory $SuccessCopyWith(Success value, $Res Function(Success) _then) = _$SuccessCopyWithImpl;
 @useResult
 $Res call({
- String message
+ String message, String userId, String email, String name
 });
 
 
@@ -162,9 +165,12 @@ class _$SuccessCopyWithImpl<$Res>
 
 /// Create a copy of SignupState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? message = null,Object? userId = null,Object? email = null,Object? name = null,}) {
   return _then(Success(
-null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
+as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
