@@ -1,5 +1,6 @@
 class AppStrings {
   static const String appName = 'VibeLink';
+  static const String userId = 'userToken';
   static const String appTagline = 'SHARE • INSPIRE • CONNECT';
   static const String welcomeMessage = 'Welcome to VibeLink!';
   static const String loginButton = 'Login';
@@ -49,7 +50,7 @@ class AppStrings {
   static const String userCreated = 'User created successfully';
   static const String userCreatedMessage =
       'User created successfully! You can now log in.';
-  static const String emailResetSentMessage = 
+  static const String emailResetSentMessage =
       'An email with instructions to reset your password has been sent.';
   static const String emailResetSent = 'Email Reset Sent';
 }
