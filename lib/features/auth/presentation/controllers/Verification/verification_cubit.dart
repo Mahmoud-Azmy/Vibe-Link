@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibe_link/features/auth/data/repos/auth_repo.dart';
-import 'package:vibe_link/features/auth/presentation/controllers/Verification/verification_state.dart';
+import 'package:vibe_link/features/auth/presentation/controllers/verification/verification_state.dart';
 
 class VerificationCubit extends Cubit<VerificationState> {
   final AuthRepo _authRepo;
@@ -8,24 +8,19 @@ class VerificationCubit extends Cubit<VerificationState> {
 
   Future<void> checkEmailVerification() async {
     emit(VerificationState.loading());
-    try {
-      final result = await _authRepo.checkEmailVerification();
+    final result = await _authRepo.checkEmailVerification();
 
-      result.fold(
-        (failure) => emit(
-          VerificationState.verificationCheckFailed(failure.errorMessage),
-        ),
-        (isVerified) {
-          if (isVerified) {
-            emit(VerificationState.verified());
-          } else {
-            emit(VerificationState.unverified());
-          }
-        },
-      );
-    } catch (e) {
-      emit(VerificationState.error('An unexpected error occurred'));
-    }
+    result.fold(
+      (failure) =>
+          emit(VerificationState.verificationCheckFailed(failure.errorMessage)),
+      (isVerified) {
+        if (isVerified) {
+          emit(VerificationState.verified());
+        } else {
+          emit(VerificationState.unverified());
+        }
+      },
+    );
   }
 
   Future<void> resendVerificationEmail() async {

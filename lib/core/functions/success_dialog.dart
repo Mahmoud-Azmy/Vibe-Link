@@ -5,10 +5,10 @@ import 'package:vibe_link/core/theme/app_colors.dart';
 
 void showSuccessDialog({
   required BuildContext context,
-  required String userId,
-  required String email,
-  required String name,
-   String? route,
+  String? userId,
+  String? email,
+  String? name,
+  String? route,
   required String message,
   required String title,
   required String buttonTitle,
@@ -54,20 +54,7 @@ void showSuccessDialog({
               child: Text(buttonTitle),
             ),
           ),
-          // TextButton(
-          //   style: TextButton.styleFrom(
-          //     foregroundColor: Colors.white,
-          //     backgroundColor: Colors.blue,
-          //     disabledForegroundColor: Colors.grey.withOpacity(0.38),
-          //   ),
-          //   onPressed: () {
-          //     GoRouter.of(context).go(
-          //       route,
-          //       extra: {'userId': userId, 'email': email, 'name': name},
-          //     );
-          //   },
-          //   child:  Text(buttonTitle),
-          // ),
+          
         ],
       );
     },

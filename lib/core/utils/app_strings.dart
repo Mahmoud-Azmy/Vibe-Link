@@ -46,4 +46,10 @@ class AppStrings {
   static const String goToVerification = 'Go to Verification';
   static const String goToHome = 'Go to Home';
   static const String verificationEmailSent = 'Verification email resent';
+  static const String userCreated = 'User created successfully';
+  static const String userCreatedMessage =
+      'User created successfully! You can now log in.';
+  static const String emailResetSentMessage = 
+      'An email with instructions to reset your password has been sent.';
+  static const String emailResetSent = 'Email Reset Sent';
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/components/gradient_text.dart';
 import 'package:vibe_link/core/functions/error_dialog.dart';
 import 'package:vibe_link/core/functions/success_dialog.dart';
@@ -9,8 +8,8 @@ import 'package:vibe_link/core/theme/app_colors.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
-import 'package:vibe_link/features/auth/presentation/controllers/Verification/verification_cubit.dart';
-import 'package:vibe_link/features/auth/presentation/controllers/Verification/verification_state.dart';
+import 'package:vibe_link/features/auth/presentation/controllers/verification/verification_cubit.dart';
+import 'package:vibe_link/features/auth/presentation/controllers/verification/verification_state.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_button.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_container_message.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/three_overlapping_squares.dart';
@@ -32,7 +31,16 @@ class VerifictionBlocConsumer extends StatelessWidget {
     return BlocConsumer<VerificationCubit, VerificationState>(
       listener: (context, state) {
         if (state is UserCreated) {
-          GoRouter.of(context).go(AppRouter.homeView);
+          showSuccessDialog(
+            context: context,
+            userId: userId,
+            email: email,
+            name: name,
+            route: AppRouter.homeView,
+            message: AppStrings.userCreatedMessage,
+            title: AppStrings.userCreated,
+            buttonTitle: AppStrings.goToHome,
+          );
         } else if (state is EmailResent) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text(AppStrings.verificationEmailSent)),
@@ -84,9 +92,20 @@ class VerifictionBlocConsumer extends StatelessWidget {
             ),
             SizedBox(height: 20.h),
             CustomButton(
-              text: AppStrings.checkVerification.toUpperCase(),
+              text:
+                  state is Verified
+                      ? AppStrings.completeRegistration
+                      : AppStrings.checkVerification.toUpperCase(),
               onPressed: () {
-                context.read<VerificationCubit>().checkEmailVerification();
+                if (state is Verified) {
+                  context.read<VerificationCubit>().createVerifiedUser(
+                    name: name,
+                    email: email,
+                    uId: userId,
+                  );
+                } else {
+                  context.read<VerificationCubit>().checkEmailVerification();
+                }
               },
               child:
                   state is Loading
@@ -97,18 +116,18 @@ class VerifictionBlocConsumer extends StatelessWidget {
                       )
                       : null,
             ),
-            SizedBox(height: 20.h),
-            if (state is Verified)
-              CustomButton(
-                text: AppStrings.completeRegistration,
-                onPressed: () {
-                  context.read<VerificationCubit>().createVerifiedUser(
-                    name: name,
-                    email: email,
-                    uId: userId,
-                  );
-                },
-              ),
+            // SizedBox(height: 20.h),
+            // if (state is Verified)
+            //   CustomButton(
+            //     text: AppStrings.completeRegistration,
+            //     onPressed: () {
+            //       context.read<VerificationCubit>().createVerifiedUser(
+            //         name: name,
+            //         email: email,
+            //         uId: userId,
+            //       );
+            //     },
+            //   ),
             SizedBox(height: 40.h),
             ThreeOverlappingSquares(),
           ],
