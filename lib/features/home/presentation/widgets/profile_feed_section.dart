@@ -1,0 +1,157 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:vibe_link/core/helper/shared_pref_helper.dart';
+import 'package:vibe_link/core/utils/app_assets.dart';
+import 'package:vibe_link/core/utils/app_router.dart';
+
+class ProfileFeedSection extends StatelessWidget {
+  const ProfileFeedSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppAssets.profileBckg),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Profile Card
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 60,
+                right: 20,
+                left: 20,
+                bottom: 20,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    // Avatar
+                    CircleAvatar(
+                      radius: 32,
+                      backgroundImage: AssetImage(AppAssets.onB2),
+                    ),
+                    const SizedBox(width: 16),
+                    // Name and Email
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Bruno Pham',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'thanhphambhbk@gmail.com',
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Edit Icon
+                    Icon(Icons.edit, color: Colors.white70),
+                  ],
+                ),
+              ),
+            ),
+            // Settings List
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: [
+                  _ProfileListTile(title: 'Email'),
+                  _ProfileListTile(title: 'Instagram'),
+                  _ProfileListTile(title: 'Twitter'),
+                  _ProfileListTile(title: 'Website'),
+                  _ProfileListTile(title: 'Paypal'),
+                  _ProfileListTile(title: 'Change password'),
+                  _ProfileListTile(title: 'About i.click'),
+                  _ProfileListTile(title: 'Terms & privacy'),
+                ],
+              ),
+            ),
+            // Logout Button
+            Padding(
+              padding: const EdgeInsets.all(24),
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  elevation: 0,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
+                ),
+                onPressed: () {
+                  SharedPrefHelper.clearAllSecuredData();
+                  GoRouter.of(context).push(AppRouter.loginView);
+                },
+                icon: SvgPicture.asset(AppAssets.logOut),
+                label: const Text('Log out'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ProfileListTile extends StatelessWidget {
+  final String title;
+  const _ProfileListTile({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.10),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16, top: 6, bottom: 6, right: 8),
+        child: Row(
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const Spacer(),
+            CircleAvatar(
+              radius: 20,
+              backgroundColor: Colors.white.withOpacity(0.10),
+              child: const Icon(Icons.chevron_right, color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

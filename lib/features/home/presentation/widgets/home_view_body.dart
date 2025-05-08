@@ -5,6 +5,7 @@ import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/features/home/data/models/botton_nav_bar_item_model.dart';
 import 'package:vibe_link/features/home/presentation/widgets/custom_floating_action_button.dart';
 import 'package:vibe_link/features/home/presentation/widgets/home_feed_section.dart';
+import 'package:vibe_link/features/home/presentation/widgets/profile_feed_section.dart';
 
 // Cubit for bottom navigation
 class BottomNavCubit extends Cubit<int> {
@@ -62,12 +63,7 @@ class HomeViewBody extends StatelessWidget {
     ),
     BottonNavBarItemModel(
       title: "Profile",
-      launchWidget: Center(
-        child: Text(
-          "Profile View",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-      ),
+      launchWidget: ProfileFeedSection(),
       icon: SvgPicture.asset(AppAssets.activeProfile, height: 24, width: 24),
       alternateIcon: SvgPicture.asset(
         AppAssets.inactiveProfile,

@@ -5,6 +5,7 @@ class AppAssets {
   static const String onB2 = 'assets/imgs/onB2.png';
   static const String onB3 = 'assets/imgs/onB3.png';
   static const String onB4 = 'assets/imgs/onB4.png';
+  static const String profileBckg = 'assets/imgs/profile_bckg.png';
   static const String google = 'assets/svgs/google_icon.svg';
   static const String facebook = 'assets/svgs/facebook_icon.svg';
   static const String hide = 'assets/svgs/Hide.svg';
@@ -19,6 +20,7 @@ class AppAssets {
       'assets/icons/active_notification.svg';
   static const String inactiveNotification = 'assets/icons/Notification.svg';
   static const String plus = 'assets/icons/Plus.svg';
+  static const String logOut = 'assets/icons/Logout.svg';
   static const String inactiveCart = 'assets/icons/Cart.svg';
   static const String emptyCart = 'assets/images/empty_cart.png';
   static const String emptyWishlist = 'assets/images/empty_wishlist.png';
