@@ -9,7 +9,7 @@ import 'package:vibe_link/features/auth/presentation/views/reset_password_screen
 import 'package:vibe_link/features/auth/presentation/views/set_new_password_screen.dart';
 import 'package:vibe_link/features/auth/presentation/views/sign_up_view.dart';
 import 'package:vibe_link/features/auth/presentation/views/verification_view.dart';
-import 'package:vibe_link/features/home/home_view.dart';
+import 'package:vibe_link/features/home/presentation/views/home_view.dart';
 import 'package:vibe_link/features/onBoarding/on_boarding.dart';
 
 abstract class AppRouter {
