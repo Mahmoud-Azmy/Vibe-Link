@@ -6,7 +6,10 @@ class PostCard extends StatelessWidget {
   final String timeAgo;
   final String imageUrl;
   final int likes;
+  final String content;
   final int comments;
+  final VoidCallback? onLike;
+  final VoidCallback? onComment;
 
   const PostCard({
     super.key,
@@ -15,6 +18,9 @@ class PostCard extends StatelessWidget {
     required this.imageUrl,
     required this.likes,
     required this.comments,
+    this.onLike,
+    this.onComment,
+    required this.content,
   });
 
   @override
@@ -33,7 +39,11 @@ class PostCard extends StatelessWidget {
             title: Text(username),
             subtitle: Text(timeAgo),
           ),
-          Image.asset(AppAssets.welcome),
+          // Image.asset(AppAssets.welcome),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(content, style: TextStyle(fontSize: 16)),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -45,6 +55,8 @@ class PostCard extends StatelessWidget {
                 Icon(Icons.comment, color: Colors.purple),
                 SizedBox(width: 4),
                 Text('$comments'),
+
+                // Example usage for like and comment buttons:
               ],
             ),
           ),

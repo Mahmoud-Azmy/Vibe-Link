@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/theme/app_colors.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
+import 'package:vibe_link/core/utils/app_router.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
-  const CustomFloatingActionButton({
-    super.key,
-  });
+  const CustomFloatingActionButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +26,10 @@ class CustomFloatingActionButton extends StatelessWidget {
         shape: CircleBorder(),
         elevation: 0,
         onPressed: () {
-          // Add your action here
+          
+        context.push(AppRouter.createPostView);
         },
-        child: SvgPicture.asset(
-          AppAssets.plus,
-          height: 24.h,
-          width: 24.w,
-        ),
+        child: SvgPicture.asset(AppAssets.plus, height: 24.h, width: 24.w),
       ),
     );
   }
