@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:vibe_link/core/models/user_model.dart';
+// Ensure you have this import
 
 class FirebaseService {
   final FirebaseAuth _firebaseAuth;
@@ -84,6 +86,14 @@ class FirebaseService {
     await _firestore.collection(collection).doc(documentId).set(data);
   }
 
+  Future<void> addData({
+    required String collection,
+    // required String documentId,
+    required Map<String, dynamic> data,
+  }) async {
+    await _firestore.collection(collection).add(data);
+  }
+
   Future<void> updateData({
     required String collection,
     required String documentId,
@@ -120,5 +130,17 @@ class FirebaseService {
     }
     final snapshot = await query.get();
     return snapshot;
+  }
+
+  Future<UserModel?> getUserData() async {
+    final user = _firebaseAuth.currentUser;
+    if (user != null) {
+      DocumentSnapshot userDoc =
+          await _firestore.collection('users').doc(user.uid).get();
+      if (userDoc.exists) {
+        return UserModel.fromJson(userDoc.data() as Map<String, dynamic>);
+      }
+    }
+    return null;
   }
 }

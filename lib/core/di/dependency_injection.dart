@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:vibe_link/core/network/firebase_service.dart';
 import 'package:vibe_link/features/auth/data/repos/auth_repo.dart';
 import 'package:vibe_link/features/auth/data/sources/auth_data_source.dart';
+import 'package:vibe_link/features/home/data/repos/home_repo.dart';
 
 final sl = GetIt.instance;
 
@@ -16,6 +17,7 @@ Future<void> getItInit() async {
       firestore: sl<FirebaseFirestore>(),
     ),
   );
+  sl.registerLazySingleton<HomeRepo>(() => HomeRepo(sl<FirebaseService>()));
   sl.registerLazySingleton<AuthDataSource>(
     () => AuthDataSourceImpl(sl<FirebaseService>()),
   );

@@ -9,7 +9,11 @@ import 'package:vibe_link/features/auth/presentation/views/reset_password_screen
 import 'package:vibe_link/features/auth/presentation/views/set_new_password_screen.dart';
 import 'package:vibe_link/features/auth/presentation/views/sign_up_view.dart';
 import 'package:vibe_link/features/auth/presentation/views/verification_view.dart';
+import 'package:vibe_link/features/home/data/repos/home_repo.dart';
+import 'package:vibe_link/features/home/presentation/controllers/CreatePost/create_post_cubit.dart';
+import 'package:vibe_link/features/home/presentation/cubit/posts_cubit.dart';
 import 'package:vibe_link/features/home/presentation/views/home_view.dart';
+import 'package:vibe_link/features/home/presentation/widgets/add_post_screen.dart';
 import 'package:vibe_link/features/onBoarding/on_boarding.dart';
 
 abstract class AppRouter {
@@ -20,6 +24,7 @@ abstract class AppRouter {
   static const String verification = '/verification';
   static const String resetPassword = '/resetPassword';
   static const String setNewPassword = '/setNewPassword';
+  static const String createPostView = '/addPost';
 
   static GoRouter router(String initialRoute) {
     return GoRouter(
@@ -29,6 +34,19 @@ abstract class AppRouter {
           path: onBoarding,
           builder: (context, state) => const OnBoarding(),
         ),
+
+        GoRoute(
+          path: createPostView,
+          builder: (context, state) {
+            return BlocProvider(
+              create: (_) => CreatePostCubit(
+                sl<HomeRepo>(),
+              ),
+              child: AddPostScreen(),
+            );
+          },
+        ),
+
         GoRoute(path: homeView, builder: (context, state) => const HomeView()),
         GoRoute(
           path: loginView,

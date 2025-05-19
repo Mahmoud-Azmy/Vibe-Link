@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:vibe_link/core/network/firebase_service.dart';
-import 'package:vibe_link/features/auth/data/models/user_model.dart';
+import 'package:vibe_link/core/models/user_model.dart';
 
 abstract class AuthDataSource {
   Future<Either<FirebaseAuthException, (String, bool)>> loginUseUser({
