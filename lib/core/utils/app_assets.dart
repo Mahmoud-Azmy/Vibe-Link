@@ -1,6 +1,7 @@
 class AppAssets {
   static const String onBoarding = 'assets/imgs/Boarding.png';
   static const String welcome = 'assets/imgs/welcome.png';
+  static const String appLogo = 'assets/imgs/app_logo.png';
   static const String onB1 = 'assets/imgs/onB1.png';
   static const String onB2 = 'assets/imgs/onB2.png';
   static const String onB3 = 'assets/imgs/onB3.png';
