@@ -5,7 +5,7 @@ import 'package:vibe_link/core/theme/app_colors.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
-import 'package:vibe_link/features/auth/presentation/widgets/custom_button.dart';
+import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_container_message.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/set_new_password_user_input.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/three_overlapping_squares.dart';

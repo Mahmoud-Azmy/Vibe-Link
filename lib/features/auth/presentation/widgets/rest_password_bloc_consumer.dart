@@ -11,7 +11,7 @@ import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/core/utils/validators.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/resetPassword/rest_password_cubit.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/resetPassword/rest_password_state.dart';
-import 'package:vibe_link/features/auth/presentation/widgets/custom_button.dart';
+import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_container_message.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/three_overlapping_squares.dart';

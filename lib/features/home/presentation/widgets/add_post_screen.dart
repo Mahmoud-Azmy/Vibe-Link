@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:vibe_link/core/components/custom_button.dart';
+import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_cubit.dart';
 import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_state.dart';
@@ -18,16 +20,18 @@ class AddPostScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
+            TextFormField(
               controller: _controller,
               maxLines: 5,
               decoration: InputDecoration(
                 hintText: AppStrings.whatIsOnYourMind,
-                border: OutlineInputBorder(),
+                border: InputBorder.none,
               ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
+            Spacer(),
+            CustomButton(
+              text: 'POST',
               onPressed: () {
                 if (_controller.text.trim().isNotEmpty) {
                   context.read<PostCubit>().createPost(
@@ -54,9 +58,11 @@ class AddPostScreen extends StatelessWidget {
                 },
                 builder: (context, state) {
                   if (state is CreatePostLoading) {
-                    return Center(child: CircularProgressIndicator());
+                    return Center(
+                      child: CircularProgressIndicator(color: Colors.white),
+                    );
                   }
-                  return Text('Post');
+                  return Text('POST', style: AppTextStyles.font16Bold);
                 },
               ),
             ),

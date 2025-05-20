@@ -7,7 +7,7 @@ import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/login/login_cubit.dart';
-import 'package:vibe_link/features/auth/presentation/widgets/custom_button.dart';
+import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/login_bloc_listener.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/login_by.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/login_email_and_password.dart';
