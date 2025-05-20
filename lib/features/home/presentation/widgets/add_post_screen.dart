@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vibe_link/features/home/presentation/controllers/CreatePost/create_post_cubit.dart';
-import 'package:vibe_link/features/home/presentation/controllers/CreatePost/create_post_state.dart';
+import 'package:vibe_link/core/utils/app_strings.dart';
+import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_cubit.dart';
+import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_state.dart';
 
 class AddPostScreen extends StatelessWidget {
   AddPostScreen({super.key});
@@ -21,7 +22,7 @@ class AddPostScreen extends StatelessWidget {
               controller: _controller,
               maxLines: 5,
               decoration: InputDecoration(
-                hintText: "What's on your mind?",
+                hintText: AppStrings.whatIsOnYourMind,
                 border: OutlineInputBorder(),
               ),
             ),
@@ -29,16 +30,21 @@ class AddPostScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 if (_controller.text.trim().isNotEmpty) {
-                  context.read<CreatePostCubit>().createPost(
+                  context.read<PostCubit>().createPost(
                     content: _controller.text.trim(),
                     postImage: '',
                   );
                 }
               },
-              child: BlocConsumer<CreatePostCubit, CreatePostState>(
+              child: BlocConsumer<PostCubit, CreatePostState>(
+                buildWhen: (previous, current) {
+                  return current is CreatePostLoading ||
+                      current is CreatePostSuccess ||
+                      current is CreatePostFailure;
+                },
                 listener: (context, state) {
                   if (state is CreatePostSuccess) {
-                    GoRouter.of(context).pop();
+                    GoRouter.of(context).pop(true);
                   }
                   if (state is CreatePostFailure) {
                     ScaffoldMessenger.of(

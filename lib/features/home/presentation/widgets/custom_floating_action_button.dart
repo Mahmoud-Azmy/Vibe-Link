@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/theme/app_colors.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
+import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_cubit.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
   const CustomFloatingActionButton({super.key});
@@ -26,8 +28,11 @@ class CustomFloatingActionButton extends StatelessWidget {
         shape: CircleBorder(),
         elevation: 0,
         onPressed: () {
-          
-        context.push(AppRouter.createPostView);
+          GoRouter.of(context).push(AppRouter.createPostView).then((result) {
+            if (result == true) {
+              context.read<PostCubit>().fetchPosts();
+            }
+          });
         },
         child: SvgPicture.asset(AppAssets.plus, height: 24.h, width: 24.w),
       ),

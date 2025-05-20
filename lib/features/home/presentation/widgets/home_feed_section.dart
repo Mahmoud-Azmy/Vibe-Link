@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vibe_link/features/home/presentation/cubit/posts_cubit.dart';
+import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_cubit.dart';
+import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_state.dart';
 import 'package:vibe_link/features/home/presentation/widgets/post_card.dart';
 
 class HomeFeedSection extends StatelessWidget {
@@ -8,93 +9,95 @@ class HomeFeedSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => PostsCubit()..fetchPosts(),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 60),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 8.0,
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.search, color: Colors.grey),
-                        hintText: 'Search',
-                        filled: true,
-                        fillColor: Colors.grey[200],
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide.none,
-                        ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: 60),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search, color: Colors.grey),
+                      hintText: 'Search',
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide.none,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            // Tabs
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 8.0,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Popular',
-                    style: TextStyle(
-                      color: Colors.purple,
-                      fontWeight: FontWeight.bold,
-                    ),
+          ),
+          // Tabs
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Popular',
+                  style: TextStyle(
+                    color: Colors.purple,
+                    fontWeight: FontWeight.bold,
                   ),
-                  Text('Trending', style: TextStyle(color: Colors.grey)),
-                  Text('Following', style: TextStyle(color: Colors.grey)),
-                ],
-              ),
+                ),
+                Text('Trending', style: TextStyle(color: Colors.grey)),
+                Text('Following', style: TextStyle(color: Colors.grey)),
+              ],
             ),
-            // Feed
-            BlocBuilder<PostsCubit, PostsState>(
-              builder: (context, state) {
-                if (state is PostsLoading) {
-                  return Center(child: CircularProgressIndicator());
-                } else if (state is PostsLoaded) {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: state.posts.length,
-                    itemBuilder: (context, index) {
-                      final post = state.posts[index];
-                      return PostCard(
-                        content: post.content,
-                        username: post.username,
-                        timeAgo: post.timeAgo,
-                        imageUrl: post.imageUrl,
-                        likes: 5,
-                        comments: 5,
-                        onLike: () {
-                          // context.read<PostsCubit>().likePost(post.id)
-                        },
-                        onComment: () {
-                          //_showCommentDialog(context, post.id)
-                        },
-                      );
-                    },
-                  );
-                } else if (state is PostsError) {
-                  return Center(child: Text('Failed to load posts'));
-                }
-                return SizedBox.shrink();
-              },
-            ),
-          ],
-        ),
+          ),
+          // Feed
+          BlocBuilder<PostCubit, CreatePostState>(
+            buildWhen: (previous, current) {
+              return current is PostsLoading ||
+                  current is PostsLoaded ||
+                  current is PostsError;
+            },
+            builder: (context, state) {
+              if (state is PostsLoading) {
+                return Center(child: CircularProgressIndicator());
+              } else if (state is PostsLoaded) {
+                return ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: state.posts.length,
+                  itemBuilder: (context, index) {
+                    final post = state.posts[index];
+                    return PostCard(
+                      content: post.content,
+                      username: post.username,
+                      timeAgo: post.timeAgo,
+                      imageUrl: post.imageUrl,
+                      likes: 5,
+                      comments: 5,
+                      onLike: () {
+                        // context.read<PostsCubit>().likePost(post.id)
+                      },
+                      onComment: () {
+                        //_showCommentDialog(context, post.id)
+                      },
+                    );
+                  },
+                );
+              } else if (state is PostsError) {
+                return Center(child: Text('Failed to load posts'));
+              }
+              return SizedBox.shrink();
+            },
+          ),
+        ],
       ),
     );
   }

@@ -53,4 +53,5 @@ class AppStrings {
   static const String emailResetSentMessage =
       'An email with instructions to reset your password has been sent.';
   static const String emailResetSent = 'Email Reset Sent';
+  static const String whatIsOnYourMind = "What's on your mind?";
 }

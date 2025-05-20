@@ -10,8 +10,7 @@ import 'package:vibe_link/features/auth/presentation/views/set_new_password_scre
 import 'package:vibe_link/features/auth/presentation/views/sign_up_view.dart';
 import 'package:vibe_link/features/auth/presentation/views/verification_view.dart';
 import 'package:vibe_link/features/home/data/repos/home_repo.dart';
-import 'package:vibe_link/features/home/presentation/controllers/CreatePost/create_post_cubit.dart';
-import 'package:vibe_link/features/home/presentation/cubit/posts_cubit.dart';
+import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_cubit.dart';
 import 'package:vibe_link/features/home/presentation/views/home_view.dart';
 import 'package:vibe_link/features/home/presentation/widgets/add_post_screen.dart';
 import 'package:vibe_link/features/onBoarding/on_boarding.dart';
@@ -39,15 +38,19 @@ abstract class AppRouter {
           path: createPostView,
           builder: (context, state) {
             return BlocProvider(
-              create: (_) => CreatePostCubit(
-                sl<HomeRepo>(),
-              ),
+              create: (_) => PostCubit(sl<HomeRepo>()),
               child: AddPostScreen(),
             );
           },
         ),
-
-        GoRoute(path: homeView, builder: (context, state) => const HomeView()),
+        GoRoute(
+          path: homeView,
+          builder:
+              (context, state) => BlocProvider(
+                create: (context) => PostCubit(sl<HomeRepo>())..fetchPosts(),
+                child: const HomeView(),
+              ),
+        ),
         GoRoute(
           path: loginView,
           builder:

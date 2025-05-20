@@ -1,39 +1,39 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vibe_link/features/home/data/models/post_model.dart';
-// Removed import for timeago
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:vibe_link/features/home/data/models/post_model.dart';
+// // Removed import for timeago
 
-abstract class PostsState {}
+// abstract class PostsState {}
 
-class PostsLoading extends PostsState {}
+// class PostsLoading extends PostsState {}
 
-class PostsLoaded extends PostsState {
-  final List<PostModel> posts;
-  PostsLoaded(this.posts);
-}
+// class PostsLoaded extends PostsState {
+//   final List<PostModel> posts;
+//   PostsLoaded(this.posts);
+// }
 
-class PostsError extends PostsState {}
+// class PostsError extends PostsState {}
 
-class PostsCubit extends Cubit<PostsState> {
-  PostsCubit() : super(PostsLoading());
+// class PostsCubit extends Cubit<PostsState> {
+//   PostsCubit() : super(PostsLoading());
 
-  final _postsRef = FirebaseFirestore.instance.collection('posts');
+//   final _postsRef = FirebaseFirestore.instance.collection('posts');
 
-  void fetchPosts() async {
-    emit(PostsLoading());
-    try {
-      final snapshot =
-          await _postsRef.orderBy('timeAgo', descending: true).get();
-      final posts =
-          snapshot.docs
-              .map((doc) => PostModel.fromMap(doc.data(), doc.id))
-              .toList();
-      emit(PostsLoaded(posts));
-    } catch (e) {
-      emit(PostsError());
-    }
-  }
-}
+//   void fetchPosts() async {
+//     emit(PostsLoading());
+//     try {
+//       final snapshot =
+//           await _postsRef.orderBy('timeAgo', descending: true).get();
+//       final posts =
+//           snapshot.docs
+//               .map((doc) => PostModel.fromMap(doc.data(), doc.id))
+//               .toList();
+//       emit(PostsLoaded(posts));
+//     } catch (e) {
+//       emit(PostsError());
+//     }
+//   }
+// }
 
   // Uncomment and implement these methods if needed
   // void createPost(String content) async {
