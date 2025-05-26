@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/core/components/gradient_text.dart';
 import 'package:vibe_link/core/theme/app_colors.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
-import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_container_message.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/set_new_password_user_input.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/three_overlapping_squares.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class SetNewPasswordScreen extends StatelessWidget {
   const SetNewPasswordScreen({super.key});
@@ -47,7 +47,7 @@ class SetNewPasswordScreen extends StatelessWidget {
               right: 0,
               child: Center(
                 child: Text(
-                  AppStrings.appName,
+                  S.of(context).appName,
                   style: AppTextStyles.font24Bold,
                 ),
               ),
@@ -71,18 +71,18 @@ class SetNewPasswordScreen extends StatelessWidget {
                     children: [
                       GradientText(
                         colors: AppColors.buttonsColor,
-                        text: AppStrings.setNewPassword.toUpperCase(),
+                        text: S.of(context).setNewPassword.toUpperCase(),
                         textStyle: AppTextStyles.font18Bold,
                       ),
                       SizedBox(height: 16.h),
                       CustomContainerMessage(
-                        message: AppStrings.typeYourNewPassword,
+                        message: S.of(context).typeYourNewPassword,
                       ),
                       SizedBox(height: 40.h),
                       SetNewPasswordUserInput(),
                       SizedBox(height: 20.h),
                       CustomButton(
-                        text: AppStrings.send.toUpperCase(),
+                        text: S.of(context).send.toUpperCase(),
                         onPressed: () {},
                       ),
                       SizedBox(height: 40.h),

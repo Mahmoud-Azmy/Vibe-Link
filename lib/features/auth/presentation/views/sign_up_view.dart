@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/signup/signup_cubit.dart';
-import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/sign_up_bloc_listener.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/sign_up_email_and_password.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -47,7 +47,7 @@ class SignUpView extends StatelessWidget {
               right: 0,
               child: Center(
                 child: Text(
-                  AppStrings.appName,
+                  S.of(context).appName,
                   style: AppTextStyles.font24Bold,
                 ),
               ),
@@ -72,7 +72,7 @@ class SignUpView extends StatelessWidget {
                       SizedBox(height: 20.h),
                       // Log In Button
                       CustomButton(
-                        text: AppStrings.signupButton,
+                        text: S.of(context).signupButton,
                         onPressed: () {
                           onPressedLogin(context);
                         },
@@ -83,7 +83,7 @@ class SignUpView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            AppStrings.alreadyHaveAccount,
+                            S.of(context).alreadyHaveAccount,
                             style: AppTextStyles.font14Grey,
                           ),
                           TextButton(
@@ -91,7 +91,7 @@ class SignUpView extends StatelessWidget {
                               GoRouter.of(context).pop();
                             },
                             child: Text(
-                              AppStrings.loginButton,
+                              S.of(context).loginButton,
                               style: AppTextStyles.font14Bold,
                             ),
                           ),

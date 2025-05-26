@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_cubit.dart';
 import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_state.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class AddPostScreen extends StatelessWidget {
   AddPostScreen({super.key});
@@ -15,7 +15,7 @@ class AddPostScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add Post')),
+      appBar: AppBar(title: Text(S.of(context).addPost)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -24,14 +24,14 @@ class AddPostScreen extends StatelessWidget {
               controller: _controller,
               maxLines: 5,
               decoration: InputDecoration(
-                hintText: AppStrings.whatIsOnYourMind,
+                hintText: S.of(context).whatIsOnYourMind,
                 border: InputBorder.none,
               ),
             ),
             SizedBox(height: 20),
             Spacer(),
             CustomButton(
-              text: 'POST',
+              text: S.of(context).post,
               onPressed: () {
                 if (_controller.text.trim().isNotEmpty) {
                   context.read<PostCubit>().createPost(
@@ -62,7 +62,10 @@ class AddPostScreen extends StatelessWidget {
                       child: CircularProgressIndicator(color: Colors.white),
                     );
                   }
-                  return Text('POST', style: AppTextStyles.font16Bold);
+                  return Text(
+                    S.of(context).post,
+                    style: AppTextStyles.font16Bold,
+                  );
                 },
               ),
             ),

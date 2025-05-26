@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vibe_link/core/di/dependency_injection.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/auth/data/repos/auth_repo.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/verification/verification_cubit.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/verifiction_bloc_consumer.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class VerificationScreen extends StatelessWidget {
   final String userId;
@@ -57,7 +57,7 @@ class VerificationScreen extends StatelessWidget {
                 right: 0,
                 child: Center(
                   child: Text(
-                    AppStrings.appName,
+                    S.of(context).appName,
                     style: AppTextStyles.font24Bold,
                   ),
                 ),

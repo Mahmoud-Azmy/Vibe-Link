@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/core/utils/validators.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_text_form_field.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class SetNewPasswordUserInput extends StatefulWidget {
   const SetNewPasswordUserInput({super.key});
@@ -41,10 +41,10 @@ class _SetNewPasswordUserInputState extends State<SetNewPasswordUserInput> {
             ),
             isObscured: isPasswordObscured,
             controller: _controller,
-            hintText: AppStrings.password,
+            hintText: S.of(context).password,
             isPassword: true,
             validator: (value) {
-              return Validators.validatePassword(value);
+              return Validators.validatePassword(value, context);
             },
           ),
           SizedBox(height: 20.h),
@@ -63,10 +63,10 @@ class _SetNewPasswordUserInputState extends State<SetNewPasswordUserInput> {
               },
             ),
             controller: _confirmController,
-            hintText: AppStrings.confirmPassword,
+            hintText: S.of(context).confirmPassword,
             isPassword: true,
             validator: (value) {
-              return Validators.validatePassword(value);
+              return Validators.validatePassword(value, context);
             },
           ),
         ],

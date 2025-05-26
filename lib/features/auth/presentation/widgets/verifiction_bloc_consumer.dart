@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/core/components/gradient_text.dart';
 import 'package:vibe_link/core/functions/error_dialog.dart';
 import 'package:vibe_link/core/functions/success_dialog.dart';
 import 'package:vibe_link/core/theme/app_colors.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/verification/verification_cubit.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/verification/verification_state.dart';
-import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/custom_container_message.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/three_overlapping_squares.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class VerifictionBlocConsumer extends StatelessWidget {
   const VerifictionBlocConsumer({
@@ -37,13 +37,13 @@ class VerifictionBlocConsumer extends StatelessWidget {
             email: email,
             name: name,
             route: AppRouter.homeView,
-            message: AppStrings.userCreatedMessage,
-            title: AppStrings.userCreated,
-            buttonTitle: AppStrings.goToHome,
+            message: S.of(context).userCreatedMessage,
+            title: S.of(context).userCreated,
+            buttonTitle: S.of(context).goToHome,
           );
         } else if (state is EmailResent) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text(AppStrings.verificationEmailSent)),
+            SnackBar(content: Text(S.of(context).verificationEmailSent)),
           );
         } else if (state is Error) {
           ScaffoldMessenger.of(
@@ -59,12 +59,12 @@ class VerifictionBlocConsumer extends StatelessWidget {
             userId: userId,
             email: email,
             name: name,
-            message: AppStrings.verifiedMessage,
-            title: AppStrings.verified,
-            buttonTitle: AppStrings.gotIt,
+            message: S.of(context).verifiedMessage,
+            title: S.of(context).verified,
+            buttonTitle: S.of(context).gotIt,
           );
         } else if (state is Unverified) {
-          errorDialog(context, AppStrings.notVerified);
+          errorDialog(context, S.of(context).notVerified);
         }
       },
       builder: (context, state) {
@@ -74,11 +74,11 @@ class VerifictionBlocConsumer extends StatelessWidget {
           children: [
             GradientText(
               colors: AppColors.buttonsColor,
-              text: AppStrings.verification.toUpperCase(),
+              text: S.of(context).verification.toUpperCase(),
               textStyle: AppTextStyles.font18Bold,
             ),
             SizedBox(height: 16.h),
-            CustomContainerMessage(message: AppStrings.verifyCodeMessage),
+            CustomContainerMessage(message: S.of(context).verifyCodeMessage),
             SizedBox(height: 40.h),
             // Resend Code Text
             TextButton(
@@ -86,7 +86,7 @@ class VerifictionBlocConsumer extends StatelessWidget {
                 context.read<VerificationCubit>().resendVerificationEmail();
               },
               child: Text(
-                AppStrings.resendCode.toUpperCase(),
+                S.of(context).resendCode.toUpperCase(),
                 style: AppTextStyles.font14Grey,
               ),
             ),
@@ -94,8 +94,8 @@ class VerifictionBlocConsumer extends StatelessWidget {
             CustomButton(
               text:
                   state is Verified
-                      ? AppStrings.completeRegistration
-                      : AppStrings.checkVerification.toUpperCase(),
+                      ? S.of(context).completeRegistration
+                      : S.of(context).checkVerification.toUpperCase(),
               onPressed: () {
                 if (state is Verified) {
                   context.read<VerificationCubit>().createVerifiedUser(
@@ -119,7 +119,7 @@ class VerifictionBlocConsumer extends StatelessWidget {
             // SizedBox(height: 20.h),
             // if (state is Verified)
             //   CustomButton(
-            //     text: AppStrings.completeRegistration,
+            //     text: S.of(context).completeRegistration,
             //     onPressed: () {
             //       context.read<VerificationCubit>().createVerifiedUser(
             //         name: name,

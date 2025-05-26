@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/helper/shared_pref_helper.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class ProfileFeedSection extends StatelessWidget {
   const ProfileFeedSection({super.key});
@@ -47,19 +48,19 @@ class ProfileFeedSection extends StatelessWidget {
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
-                            'Bruno Pham',
-                            style: TextStyle(
+                            S.of(context).profileName,
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                             ),
                           ),
-                          SizedBox(height: 4),
+                          const SizedBox(height: 4),
                           Text(
-                            'thanhphambhbk@gmail.com',
-                            style: TextStyle(
+                            S.of(context).profileEmail,
+                            style: const TextStyle(
                               color: Colors.white70,
                               fontSize: 14,
                             ),
@@ -78,14 +79,14 @@ class ProfileFeedSection extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 children: [
-                  _ProfileListTile(title: 'Email'),
-                  _ProfileListTile(title: 'Instagram'),
-                  _ProfileListTile(title: 'Twitter'),
-                  _ProfileListTile(title: 'Website'),
-                  _ProfileListTile(title: 'Paypal'),
-                  _ProfileListTile(title: 'Change password'),
-                  _ProfileListTile(title: 'About i.click'),
-                  _ProfileListTile(title: 'Terms & privacy'),
+                  _ProfileListTile(title: S.of(context).settingsEmail),
+                  _ProfileListTile(title: S.of(context).settingsInstagram),
+                  _ProfileListTile(title: S.of(context).settingsTwitter),
+                  _ProfileListTile(title: S.of(context).settingsWebsite),
+                  _ProfileListTile(title: S.of(context).settingsPaypal),
+                  _ProfileListTile(title: S.of(context).settingsChangePassword),
+                  _ProfileListTile(title: S.of(context).settingsAboutApp),
+                  _ProfileListTile(title: S.of(context).settingsTermsPrivacy),
                 ],
               ),
             ),
@@ -110,7 +111,7 @@ class ProfileFeedSection extends StatelessWidget {
                   GoRouter.of(context).push(AppRouter.loginView);
                 },
                 icon: SvgPicture.asset(AppAssets.logOut),
-                label: const Text('Log out'),
+                label: Text(S.of(context).logoutButton),
               ),
             ),
           ],

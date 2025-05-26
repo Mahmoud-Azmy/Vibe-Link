@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/functions/error_dialog.dart';
 import 'package:vibe_link/core/functions/success_dialog.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/signup/signup_cubit.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/signup/signup_state.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class SignUpBlocListener extends StatelessWidget {
   const SignUpBlocListener({super.key});
@@ -26,10 +27,10 @@ class SignUpBlocListener extends StatelessWidget {
           Navigator.pop(context);
           //and go to the Verification screen
           showSuccessDialog(
-            title: AppStrings.signupSuccessful,
-            message: AppStrings.signupSuccessMessage,
+            title: S.of(context).signupSuccessful,
+            message: S.of(context).signupSuccessMessage,
             route: AppRouter.verification,
-            buttonTitle: AppStrings.goToVerification,
+            buttonTitle: S.of(context).goToVerification,
             context: context,
             userId: state.userId,
             email: state.email,
@@ -37,7 +38,7 @@ class SignUpBlocListener extends StatelessWidget {
           );
         }
         if (state is Error) {
-          Navigator.pop(context);
+          GoRouter.of(context).pop(context);
           // Show error message
           errorDialog(context, state.message);
         }

@@ -483,6 +483,201 @@ class S {
       args: [],
     );
   }
+
+  /// `Add Post`
+  String get addPost {
+    return Intl.message('Add Post', name: 'addPost', desc: '', args: []);
+  }
+
+  /// `POST`
+  String get post {
+    return Intl.message('POST', name: 'post', desc: '', args: []);
+  }
+
+  /// `Bruno Pham`
+  String get profileName {
+    return Intl.message('Bruno Pham', name: 'profileName', desc: '', args: []);
+  }
+
+  /// `thanhphambhbk@gmail.com`
+  String get profileEmail {
+    return Intl.message(
+      'thanhphambhbk@gmail.com',
+      name: 'profileEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get settingsEmail {
+    return Intl.message('Email', name: 'settingsEmail', desc: '', args: []);
+  }
+
+  /// `Instagram`
+  String get settingsInstagram {
+    return Intl.message(
+      'Instagram',
+      name: 'settingsInstagram',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Twitter`
+  String get settingsTwitter {
+    return Intl.message('Twitter', name: 'settingsTwitter', desc: '', args: []);
+  }
+
+  /// `Website`
+  String get settingsWebsite {
+    return Intl.message('Website', name: 'settingsWebsite', desc: '', args: []);
+  }
+
+  /// `Paypal`
+  String get settingsPaypal {
+    return Intl.message('Paypal', name: 'settingsPaypal', desc: '', args: []);
+  }
+
+  /// `Change password`
+  String get settingsChangePassword {
+    return Intl.message(
+      'Change password',
+      name: 'settingsChangePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About i.click`
+  String get settingsAboutApp {
+    return Intl.message(
+      'About i.click',
+      name: 'settingsAboutApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms & privacy`
+  String get settingsTermsPrivacy {
+    return Intl.message(
+      'Terms & privacy',
+      name: 'settingsTermsPrivacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log out`
+  String get logoutButton {
+    return Intl.message('Log out', name: 'logoutButton', desc: '', args: []);
+  }
+
+  /// `Please enter your email`
+  String get emailValidationEmpty {
+    return Intl.message(
+      'Please enter your email',
+      name: 'emailValidationEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get emailValidationInvalid {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'emailValidationInvalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your password`
+  String get passwordValidationEmpty {
+    return Intl.message(
+      'Please enter your password',
+      name: 'passwordValidationEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 6 characters`
+  String get passwordValidationLength {
+    return Intl.message(
+      'Password must be at least 6 characters',
+      name: 'passwordValidationLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one uppercase letter`
+  String get passwordValidationUppercase {
+    return Intl.message(
+      'Password must contain at least one uppercase letter',
+      name: 'passwordValidationUppercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one number`
+  String get passwordValidationNumber {
+    return Intl.message(
+      'Password must contain at least one number',
+      name: 'passwordValidationNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your username`
+  String get usernameValidationEmpty {
+    return Intl.message(
+      'Please enter your username',
+      name: 'usernameValidationEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username must be at least 3 characters`
+  String get usernameValidationLength {
+    return Intl.message(
+      'Username must be at least 3 characters',
+      name: 'usernameValidationLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the verification code`
+  String get verifyCodeValidationEmpty {
+    return Intl.message(
+      'Please enter the verification code',
+      name: 'verifyCodeValidationEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification code must be 6 digits`
+  String get verifyCodeValidationLength {
+    return Intl.message(
+      'Verification code must be 6 digits',
+      name: 'verifyCodeValidationLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GET STARTED`
+  String get getStarted {
+    return Intl.message('GET STARTED', name: 'getStarted', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

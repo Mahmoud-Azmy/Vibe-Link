@@ -96,8 +96,14 @@ class HomeViewBody extends StatelessWidget {
                       child: GestureDetector(
                         child: Padding(
                           padding: EdgeInsets.only(
-                            right: index == 1 ? 20 : 0,
-                            left: index == 2 ? 20 : 0,
+                            right:
+                                Directionality.of(context) == TextDirection.rtl
+                                    ? (index == 2 ? 20 : 0)
+                                    : (index == 1 ? 20 : 0),
+                            left:
+                                Directionality.of(context) == TextDirection.rtl
+                                    ? (index == 1 ? 20 : 0)
+                                    : (index == 2 ? 20 : 0),
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,

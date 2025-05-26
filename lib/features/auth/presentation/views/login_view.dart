@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/login/login_cubit.dart';
-import 'package:vibe_link/core/components/custom_button.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/login_bloc_listener.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/login_by.dart';
 import 'package:vibe_link/features/auth/presentation/widgets/login_email_and_password.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -49,7 +49,7 @@ class LoginView extends StatelessWidget {
               right: 0,
               child: Center(
                 child: Text(
-                  AppStrings.appName,
+                  S.of(context).appName,
                   style: AppTextStyles.font24Bold,
                 ),
               ),
@@ -79,7 +79,7 @@ class LoginView extends StatelessWidget {
                             GoRouter.of(context).push(AppRouter.resetPassword);
                           },
                           child: Text(
-                            AppStrings.forgotPassword,
+                            S.of(context).forgotPassword,
                             style: AppTextStyles.font14Grey,
                           ),
                         ),
@@ -87,7 +87,7 @@ class LoginView extends StatelessWidget {
                       SizedBox(height: 20.h),
                       // Log In Button
                       CustomButton(
-                        text: AppStrings.loginButton,
+                        text: S.of(context).loginButton,
                         onPressed: () {
                           onPressedLogin(context);
                         },
@@ -95,7 +95,7 @@ class LoginView extends StatelessWidget {
                       SizedBox(height: 20.h),
                       // Or Log In By Text
                       Text(
-                        AppStrings.orLoginBy,
+                        S.of(context).orLoginBy,
                         style: AppTextStyles.font14Grey,
                       ),
                       SizedBox(height: 20.h),
@@ -107,7 +107,7 @@ class LoginView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            AppStrings.noAccount,
+                            S.of(context).noAccount,
                             style: AppTextStyles.font14Grey,
                           ),
                           TextButton(
@@ -115,7 +115,7 @@ class LoginView extends StatelessWidget {
                               GoRouter.of(context).push(AppRouter.registerView);
                             },
                             child: Text(
-                              AppStrings.signupButton,
+                              S.of(context).signupButton,
                               style: AppTextStyles.font14Bold,
                             ),
                           ),

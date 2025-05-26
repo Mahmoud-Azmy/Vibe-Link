@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addPost": MessageLookupByLibrary.simpleMessage("إضافة منشور"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل؟ ",
     ),
@@ -41,12 +42,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailResetSentMessage": MessageLookupByLibrary.simpleMessage(
       "تم إرسال بريد إلكتروني يحتوي على تعليمات إعادة تعيين كلمة المرور.",
     ),
+    "emailValidationEmpty": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال بريدك الإلكتروني",
+    ),
+    "emailValidationInvalid": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال بريد إلكتروني صالح",
+    ),
     "errorMessage": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ. يرجى المحاولة مرة أخرى.",
     ),
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
     ),
+    "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
     "goToHome": MessageLookupByLibrary.simpleMessage(
       "اذهب إلى الصفحة الرئيسية",
     ),
@@ -57,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginSuccessful": MessageLookupByLibrary.simpleMessage(
       "تم تسجيل الدخول بنجاح",
     ),
+    "logoutButton": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "name": MessageLookupByLibrary.simpleMessage("الاسم"),
     "noAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟ "),
     "noDataMessage": MessageLookupByLibrary.simpleMessage(
@@ -69,7 +78,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "orLoginBy": MessageLookupByLibrary.simpleMessage("أو سجل الدخول بواسطة"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordHint": MessageLookupByLibrary.simpleMessage("أدخل كلمة المرور"),
+    "passwordValidationEmpty": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال كلمة المرور",
+    ),
+    "passwordValidationLength": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
+    ),
+    "passwordValidationNumber": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
+    ),
+    "passwordValidationUppercase": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+    ),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "post": MessageLookupByLibrary.simpleMessage("نشر"),
+    "profileEmail": MessageLookupByLibrary.simpleMessage(
+      "thanhphambhbk@gmail.com",
+    ),
+    "profileName": MessageLookupByLibrary.simpleMessage("برونو فام"),
     "resendCode": MessageLookupByLibrary.simpleMessage("لم تستلم الرمز؟"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
@@ -80,6 +106,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "setNewPassword": MessageLookupByLibrary.simpleMessage(
       "تعيين كلمة مرور جديدة",
+    ),
+    "settingsAboutApp": MessageLookupByLibrary.simpleMessage("حول التطبيق"),
+    "settingsChangePassword": MessageLookupByLibrary.simpleMessage(
+      "تغيير كلمة المرور",
+    ),
+    "settingsEmail": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "settingsInstagram": MessageLookupByLibrary.simpleMessage("إنستغرام"),
+    "settingsPaypal": MessageLookupByLibrary.simpleMessage("باي بال"),
+    "settingsTermsPrivacy": MessageLookupByLibrary.simpleMessage(
+      "الشروط والخصوصية",
+    ),
+    "settingsTwitter": MessageLookupByLibrary.simpleMessage("تويتر"),
+    "settingsWebsite": MessageLookupByLibrary.simpleMessage(
+      "الموقع الإلكتروني",
     ),
     "signupButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "signupSuccessMessage": MessageLookupByLibrary.simpleMessage(
@@ -104,6 +144,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم إنشاء المستخدم بنجاح! يمكنك الآن تسجيل الدخول.",
     ),
     "userId": MessageLookupByLibrary.simpleMessage("رمز المستخدم"),
+    "usernameValidationEmpty": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال اسم المستخدم",
+    ),
+    "usernameValidationLength": MessageLookupByLibrary.simpleMessage(
+      "يجب أن يحتوي اسم المستخدم على 3 أحرف على الأقل",
+    ),
     "verification": MessageLookupByLibrary.simpleMessage("التحقق"),
     "verificationEmailSent": MessageLookupByLibrary.simpleMessage(
       "تم إعادة إرسال بريد التحقق",
@@ -118,6 +164,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "verifyCodeHint": MessageLookupByLibrary.simpleMessage("أدخل رمز التحقق"),
     "verifyCodeMessage": MessageLookupByLibrary.simpleMessage(
       "تم إرسال رسالة تحتوي على رمز التحقق إلى بريدك الإلكتروني.",
+    ),
+    "verifyCodeValidationEmpty": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال رمز التحقق",
+    ),
+    "verifyCodeValidationLength": MessageLookupByLibrary.simpleMessage(
+      "يجب أن يتكون رمز التحقق من 6 أرقام",
     ),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage(
       "مرحبًا بك في فايب لينك!",

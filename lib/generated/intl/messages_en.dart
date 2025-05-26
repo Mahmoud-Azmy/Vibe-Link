@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addPost": MessageLookupByLibrary.simpleMessage("Add Post"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
@@ -41,10 +42,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailResetSentMessage": MessageLookupByLibrary.simpleMessage(
       "An email with instructions to reset your password has been sent.",
     ),
+    "emailValidationEmpty": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email",
+    ),
+    "emailValidationInvalid": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid email",
+    ),
     "errorMessage": MessageLookupByLibrary.simpleMessage(
       "An error occurred. Please try again.",
     ),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "getStarted": MessageLookupByLibrary.simpleMessage("GET STARTED"),
     "goToHome": MessageLookupByLibrary.simpleMessage("Go to Home"),
     "goToVerification": MessageLookupByLibrary.simpleMessage(
       "Go to Verification",
@@ -53,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingMessage": MessageLookupByLibrary.simpleMessage("Loading..."),
     "loginButton": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSuccessful": MessageLookupByLibrary.simpleMessage("Login successful"),
+    "logoutButton": MessageLookupByLibrary.simpleMessage("Log out"),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
     "noAccount": MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
     "noDataMessage": MessageLookupByLibrary.simpleMessage("No data available."),
@@ -63,7 +72,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "orLoginBy": MessageLookupByLibrary.simpleMessage("OR LOG IN BY"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordHint": MessageLookupByLibrary.simpleMessage("Enter your password"),
+    "passwordValidationEmpty": MessageLookupByLibrary.simpleMessage(
+      "Please enter your password",
+    ),
+    "passwordValidationLength": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 6 characters",
+    ),
+    "passwordValidationNumber": MessageLookupByLibrary.simpleMessage(
+      "Password must contain at least one number",
+    ),
+    "passwordValidationUppercase": MessageLookupByLibrary.simpleMessage(
+      "Password must contain at least one uppercase letter",
+    ),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "post": MessageLookupByLibrary.simpleMessage("POST"),
+    "profileEmail": MessageLookupByLibrary.simpleMessage(
+      "thanhphambhbk@gmail.com",
+    ),
+    "profileName": MessageLookupByLibrary.simpleMessage("Bruno Pham"),
     "resendCode": MessageLookupByLibrary.simpleMessage(
       "don\'t receive the code?",
     ),
@@ -73,6 +99,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "setNewPassword": MessageLookupByLibrary.simpleMessage("Set New Password"),
+    "settingsAboutApp": MessageLookupByLibrary.simpleMessage("About i.click"),
+    "settingsChangePassword": MessageLookupByLibrary.simpleMessage(
+      "Change password",
+    ),
+    "settingsEmail": MessageLookupByLibrary.simpleMessage("Email"),
+    "settingsInstagram": MessageLookupByLibrary.simpleMessage("Instagram"),
+    "settingsPaypal": MessageLookupByLibrary.simpleMessage("Paypal"),
+    "settingsTermsPrivacy": MessageLookupByLibrary.simpleMessage(
+      "Terms & privacy",
+    ),
+    "settingsTwitter": MessageLookupByLibrary.simpleMessage("Twitter"),
+    "settingsWebsite": MessageLookupByLibrary.simpleMessage("Website"),
     "signupButton": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "signupSuccessMessage": MessageLookupByLibrary.simpleMessage(
       "Congratulations, you have signed up successfully!",
@@ -94,6 +132,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "User created successfully! You can now log in.",
     ),
     "userId": MessageLookupByLibrary.simpleMessage("userToken"),
+    "usernameValidationEmpty": MessageLookupByLibrary.simpleMessage(
+      "Please enter your username",
+    ),
+    "usernameValidationLength": MessageLookupByLibrary.simpleMessage(
+      "Username must be at least 3 characters",
+    ),
     "verification": MessageLookupByLibrary.simpleMessage("Verification"),
     "verificationEmailSent": MessageLookupByLibrary.simpleMessage(
       "Verification email resent",
@@ -108,6 +152,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "verifyCodeMessage": MessageLookupByLibrary.simpleMessage(
       "A message with verification code was sent to your email.",
+    ),
+    "verifyCodeValidationEmpty": MessageLookupByLibrary.simpleMessage(
+      "Please enter the verification code",
+    ),
+    "verifyCodeValidationLength": MessageLookupByLibrary.simpleMessage(
+      "Verification code must be 6 digits",
     ),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage(
       "Welcome to VibeLink!",

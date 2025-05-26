@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/theme/app_text_style.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/onBoarding/widgets/diamond_image_layout.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
@@ -25,12 +25,12 @@ class OnBoarding extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(AppStrings.appName, style: AppTextStyles.font40Bold),
+              Text(S.of(context).appName, style: AppTextStyles.font40Bold),
               SizedBox(height: 40),
               DiamondImageLayout(),
               SizedBox(height: 40),
               Text(
-                AppStrings.appTagline,
+                S.of(context).appTagline,
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
@@ -50,7 +50,7 @@ class OnBoarding extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
-                child: Text('GET STARTED', style: TextStyle(fontSize: 16)),
+                child: Text(S.of(context).getStarted, style: TextStyle(fontSize: 16)),
               ),
             ],
           ),

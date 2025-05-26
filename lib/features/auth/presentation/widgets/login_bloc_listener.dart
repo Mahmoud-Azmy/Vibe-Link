@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:vibe_link/core/functions/error_dialog.dart';
 import 'package:vibe_link/core/functions/success_dialog.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
-import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/login/login_cubit.dart';
 import 'package:vibe_link/features/auth/presentation/controllers/login/login_state.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
@@ -32,10 +32,10 @@ class LoginBlocListener extends StatelessWidget {
         if (state is EmailNotVerified) {
           Navigator.pop(context);
           showSuccessDialog(
-            title: AppStrings.notVerified,
-            message: AppStrings.notVerifiedMessage,
+            title: S.of(context).notVerified,
+            message: S.of(context).notVerifiedMessage,
             route: AppRouter.verification,
-            buttonTitle: AppStrings.goToVerification,
+            buttonTitle: S.of(context).goToVerification,
             context: context,
             userId: state.userId,
             email: state.email,
