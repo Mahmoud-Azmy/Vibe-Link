@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vibe_link/core/functions/is_arabic.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/features/home/data/models/botton_nav_bar_item_model.dart';
 import 'package:vibe_link/features/home/presentation/widgets/custom_floating_action_button.dart';
@@ -97,11 +98,11 @@ class HomeViewBody extends StatelessWidget {
                         child: Padding(
                           padding: EdgeInsets.only(
                             right:
-                                Directionality.of(context) == TextDirection.rtl
+                                isArabic()
                                     ? (index == 2 ? 20 : 0)
                                     : (index == 1 ? 20 : 0),
                             left:
-                                Directionality.of(context) == TextDirection.rtl
+                                isArabic()
                                     ? (index == 1 ? 20 : 0)
                                     : (index == 2 ? 20 : 0),
                           ),
