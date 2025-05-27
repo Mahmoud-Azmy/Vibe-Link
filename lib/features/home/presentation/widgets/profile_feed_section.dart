@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:vibe_link/core/helper/locale_provider.dart';
 import 'package:vibe_link/core/helper/shared_pref_helper.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
@@ -112,6 +114,36 @@ class ProfileFeedSection extends StatelessWidget {
                 },
                 icon: SvgPicture.asset(AppAssets.logOut),
                 label: Text(S.of(context).logoutButton),
+              ),
+            ),
+            // Locale Change Button
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  elevation: 0,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
+                ),
+                onPressed: () {
+                  Locale newLocale =
+                      Localizations.localeOf(context).languageCode == 'ar'
+                          ? const Locale('en')
+                          : const Locale('ar');
+                  context.read<LocaleProvider>().setLocale(newLocale);
+                },
+                child: Text(
+                  Localizations.localeOf(context).languageCode == 'ar'
+                      ? 'English'
+                      : 'العربية',
+                ),
               ),
             ),
           ],

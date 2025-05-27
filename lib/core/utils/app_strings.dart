@@ -1,6 +1,7 @@
 class AppStrings {
   static const String appName = 'VibeLink';
   static const String userId = 'userToken';
+  static const String localeKey = 'app_locale';
   static const String appTagline = 'SHARE • INSPIRE • CONNECT';
   static const String welcomeMessage = 'Welcome to VibeLink!';
   static const String loginButton = 'Login';
@@ -55,5 +56,4 @@ class AppStrings {
   static const String emailResetSent = 'Email Reset Sent';
   static const String whatIsOnYourMind = "What's on your mind?";
   static const String post = "POST";
-
 }

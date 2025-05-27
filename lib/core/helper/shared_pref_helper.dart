@@ -92,4 +92,14 @@ class SharedPrefHelper {
     const flutterSecureStorage = FlutterSecureStorage();
     await flutterSecureStorage.deleteAll();
   }
+
+
+
+  // static Future<void> setLocale(String localeCode) async {
+  //   await setData(localeKey, localeCode);
+  // }
+
+  // static Future<String> getLocale() async {
+  //   return await getString(localeKey);
+  // }
 }

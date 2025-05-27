@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:vibe_link/core/helper/locale_provider.dart';
 import 'package:vibe_link/core/theme/app_theme.dart';
 import 'package:vibe_link/core/utils/app_router.dart';
 import 'package:vibe_link/generated/l10n.dart';
@@ -11,12 +13,13 @@ class VibeLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localeProvider = context.watch<LocaleProvider>();
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp.router(
-        locale: Locale('ar'),
+        locale: localeProvider.locale,
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -24,7 +27,7 @@ class VibeLink extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        title: 'VibeLink', // Use static title or move to where context is available
+        title: 'VibeLink',
         debugShowCheckedModeBanner: false,
         theme: appTheme(),
         routerConfig: AppRouter.router(

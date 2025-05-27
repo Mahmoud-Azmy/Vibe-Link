@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:vibe_link/core/di/dependency_injection.dart';
+import 'package:vibe_link/core/helper/locale_provider.dart';
 import 'package:vibe_link/core/helper/shared_pref_helper.dart';
 import 'package:vibe_link/core/network/push_notifications_service.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
@@ -17,7 +19,12 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await checkIfUserLoggedIn();
   await PushNotificationsService.init();
-  runApp(const VibeLink());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => LocaleProvider(),
+      child: const VibeLink(),
+    ),
+  );
 }
 
 checkIfUserLoggedIn() async {
