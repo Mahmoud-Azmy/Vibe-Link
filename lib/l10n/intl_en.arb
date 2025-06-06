@@ -71,5 +71,13 @@
   "usernameValidationLength": "Username must be at least 3 characters",
   "verifyCodeValidationEmpty": "Please enter the verification code",
   "verifyCodeValidationLength": "Verification code must be 6 digits",
-  "getStarted": "GET STARTED"
+  "getStarted": "GET STARTED",
+  "popular": "Popular",
+  "trending": "Trending",
+  "following": "Following",
+  "failedToLoadPosts": "Failed to load posts",
+  "createPost": "Create Post",
+  "addComment": "Add Comment",
+  "enterComment": "Enter your comment",
+  "search": "Search"
 }

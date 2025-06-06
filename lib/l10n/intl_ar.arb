@@ -71,6 +71,13 @@
   "usernameValidationLength": "يجب أن يحتوي اسم المستخدم على 3 أحرف على الأقل",
   "verifyCodeValidationEmpty": "الرجاء إدخال رمز التحقق",
   "verifyCodeValidationLength": "يجب أن يتكون رمز التحقق من 6 أرقام",
-  "getStarted": "ابدأ الآن"
+  "getStarted": "ابدأ الآن",
+  "popular": "شائع",
+  "trending": "رائج",
+  "following": "المتابَعون",
+  "failedToLoadPosts": "فشل في تحميل المنشورات",
+  "createPost": "إنشاء منشور",
+  "addComment": "إضافة تعليق",
+  "enterComment": "أدخل تعليقك",
+  "search": "بحث"
 }
-

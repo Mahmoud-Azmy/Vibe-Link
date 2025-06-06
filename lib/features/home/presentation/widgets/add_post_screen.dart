@@ -8,9 +8,7 @@ import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post
 import 'package:vibe_link/generated/l10n.dart';
 
 class AddPostScreen extends StatelessWidget {
-  AddPostScreen({super.key});
-
-  final TextEditingController _controller = TextEditingController();
+  const AddPostScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class AddPostScreen extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
-              controller: _controller,
+              controller: context.read<PostCubit>().postController,
               maxLines: 5,
               decoration: InputDecoration(
                 hintText: S.of(context).whatIsOnYourMind,
@@ -33,9 +31,15 @@ class AddPostScreen extends StatelessWidget {
             CustomButton(
               text: S.of(context).post,
               onPressed: () {
-                if (_controller.text.trim().isNotEmpty) {
+                if (context
+                    .read<PostCubit>()
+                    .postController
+                    .text
+                    .trim()
+                    .isNotEmpty) {
                   context.read<PostCubit>().createPost(
-                    content: _controller.text.trim(),
+                    content:
+                        context.read<PostCubit>().postController.text.trim(),
                     postImage: '',
                   );
                 }

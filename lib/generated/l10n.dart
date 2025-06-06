@@ -678,6 +678,56 @@ class S {
   String get getStarted {
     return Intl.message('GET STARTED', name: 'getStarted', desc: '', args: []);
   }
+
+  /// `Popular`
+  String get popular {
+    return Intl.message('Popular', name: 'popular', desc: '', args: []);
+  }
+
+  /// `Trending`
+  String get trending {
+    return Intl.message('Trending', name: 'trending', desc: '', args: []);
+  }
+
+  /// `Following`
+  String get following {
+    return Intl.message('Following', name: 'following', desc: '', args: []);
+  }
+
+  /// `Failed to load posts`
+  String get failedToLoadPosts {
+    return Intl.message(
+      'Failed to load posts',
+      name: 'failedToLoadPosts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Post`
+  String get createPost {
+    return Intl.message('Create Post', name: 'createPost', desc: '', args: []);
+  }
+
+  /// `Add Comment`
+  String get addComment {
+    return Intl.message('Add Comment', name: 'addComment', desc: '', args: []);
+  }
+
+  /// `Enter your comment`
+  String get enterComment {
+    return Intl.message(
+      'Enter your comment',
+      name: 'enterComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message('Search', name: 'search', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

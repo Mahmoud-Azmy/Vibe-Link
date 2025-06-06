@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addComment": MessageLookupByLibrary.simpleMessage("إضافة تعليق"),
     "addPost": MessageLookupByLibrary.simpleMessage("إضافة منشور"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل؟ ",
@@ -35,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
+    "createPost": MessageLookupByLibrary.simpleMessage("إنشاء منشور"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "emailResetSent": MessageLookupByLibrary.simpleMessage(
       "تم إرسال إعادة تعيين البريد الإلكتروني",
@@ -48,9 +50,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailValidationInvalid": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال بريد إلكتروني صالح",
     ),
+    "enterComment": MessageLookupByLibrary.simpleMessage("أدخل تعليقك"),
     "errorMessage": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ. يرجى المحاولة مرة أخرى.",
     ),
+    "failedToLoadPosts": MessageLookupByLibrary.simpleMessage(
+      "فشل في تحميل المنشورات",
+    ),
+    "following": MessageLookupByLibrary.simpleMessage("المتابَعون"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
     ),
@@ -91,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
     ),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "popular": MessageLookupByLibrary.simpleMessage("شائع"),
     "post": MessageLookupByLibrary.simpleMessage("نشر"),
     "profileEmail": MessageLookupByLibrary.simpleMessage(
       "thanhphambhbk@gmail.com",
@@ -103,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordMessage": MessageLookupByLibrary.simpleMessage(
       "سنرسل لك تعليمات حول كيفية إعادة تعيين كلمة المرور",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "setNewPassword": MessageLookupByLibrary.simpleMessage(
       "تعيين كلمة مرور جديدة",
@@ -131,6 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "successMessage": MessageLookupByLibrary.simpleMessage(
       "تمت العملية بنجاح!",
     ),
+    "trending": MessageLookupByLibrary.simpleMessage("رائج"),
     "typeYourEmail": MessageLookupByLibrary.simpleMessage(
       "أدخل بريدك الإلكتروني",
     ),

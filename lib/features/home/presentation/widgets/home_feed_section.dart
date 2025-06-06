@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_cubit.dart';
 import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_state.dart';
 import 'package:vibe_link/features/home/presentation/widgets/post_card.dart';
+import 'package:vibe_link/generated/l10n.dart';
 
 class HomeFeedSection extends StatelessWidget {
   const HomeFeedSection({super.key});
@@ -24,7 +25,7 @@ class HomeFeedSection extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search, color: Colors.grey),
-                      hintText: 'Search',
+                      hintText: S.of(context).search,
                       filled: true,
                       fillColor: Colors.grey[200],
                       border: OutlineInputBorder(
@@ -47,14 +48,20 @@ class HomeFeedSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Popular',
+                  S.of(context).popular,
                   style: TextStyle(
                     color: Colors.purple,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text('Trending', style: TextStyle(color: Colors.grey)),
-                Text('Following', style: TextStyle(color: Colors.grey)),
+                Text(
+                  S.of(context).trending,
+                  style: TextStyle(color: Colors.grey),
+                ),
+                Text(
+                  S.of(context).following,
+                  style: TextStyle(color: Colors.grey),
+                ),
               ],
             ),
           ),
@@ -92,7 +99,7 @@ class HomeFeedSection extends StatelessWidget {
                   },
                 );
               } else if (state is PostsError) {
-                return Center(child: Text('Failed to load posts'));
+                return Center(child: Text(S.of(context).failedToLoadPosts));
               }
               return SizedBox.shrink();
             },

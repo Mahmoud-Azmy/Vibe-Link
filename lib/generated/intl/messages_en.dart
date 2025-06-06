@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addComment": MessageLookupByLibrary.simpleMessage("Add Comment"),
     "addPost": MessageLookupByLibrary.simpleMessage("Add Post"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
@@ -37,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Complete Registration",
     ),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
+    "createPost": MessageLookupByLibrary.simpleMessage("Create Post"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailResetSent": MessageLookupByLibrary.simpleMessage("Email Reset Sent"),
     "emailResetSentMessage": MessageLookupByLibrary.simpleMessage(
@@ -48,9 +50,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailValidationInvalid": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid email",
     ),
+    "enterComment": MessageLookupByLibrary.simpleMessage("Enter your comment"),
     "errorMessage": MessageLookupByLibrary.simpleMessage(
       "An error occurred. Please try again.",
     ),
+    "failedToLoadPosts": MessageLookupByLibrary.simpleMessage(
+      "Failed to load posts",
+    ),
+    "following": MessageLookupByLibrary.simpleMessage("Following"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "getStarted": MessageLookupByLibrary.simpleMessage("GET STARTED"),
     "goToHome": MessageLookupByLibrary.simpleMessage("Go to Home"),
@@ -85,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Password must contain at least one uppercase letter",
     ),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "popular": MessageLookupByLibrary.simpleMessage("Popular"),
     "post": MessageLookupByLibrary.simpleMessage("POST"),
     "profileEmail": MessageLookupByLibrary.simpleMessage(
       "thanhphambhbk@gmail.com",
@@ -97,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordMessage": MessageLookupByLibrary.simpleMessage(
       "We will send you instruction on how to reset your password",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("Search"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "setNewPassword": MessageLookupByLibrary.simpleMessage("Set New Password"),
     "settingsAboutApp": MessageLookupByLibrary.simpleMessage("About i.click"),
@@ -121,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "successMessage": MessageLookupByLibrary.simpleMessage(
       "Operation successful!",
     ),
+    "trending": MessageLookupByLibrary.simpleMessage("Trending"),
     "typeYourEmail": MessageLookupByLibrary.simpleMessage("Type your email"),
     "typeYourNewPassword": MessageLookupByLibrary.simpleMessage(
       "Type your new password",
