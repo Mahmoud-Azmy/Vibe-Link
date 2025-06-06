@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:vibe_link/core/network/local_notification_service.dart';
 
 class PushNotificationsService {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
@@ -10,6 +11,9 @@ class PushNotificationsService {
     String? token = await messaging.getToken();
     log('token $token');
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+    FirebaseMessaging.onMessage.listen((event) {
+      LocalNotificationService.showNotification(event);
+    });
   }
 
   static Future<void> _firebaseMessagingBackgroundHandler(

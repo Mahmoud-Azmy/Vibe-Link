@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:vibe_link/core/di/dependency_injection.dart';
 import 'package:vibe_link/core/helper/locale_provider.dart';
 import 'package:vibe_link/core/helper/shared_pref_helper.dart';
+import 'package:vibe_link/core/network/local_notification_service.dart';
 import 'package:vibe_link/core/network/push_notifications_service.dart';
 import 'package:vibe_link/core/utils/app_strings.dart';
 import 'package:vibe_link/firebase_options.dart';
@@ -19,6 +20,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await checkIfUserLoggedIn();
   await PushNotificationsService.init();
+  await LocalNotificationService.init();
   runApp(
     ChangeNotifierProvider(
       create: (_) => LocaleProvider(),
