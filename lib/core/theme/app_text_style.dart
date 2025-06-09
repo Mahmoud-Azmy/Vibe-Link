@@ -44,5 +44,7 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
+ 
+  
   static const font16 = TextStyle(fontSize: 18, fontWeight: FontWeight.w400);
 }

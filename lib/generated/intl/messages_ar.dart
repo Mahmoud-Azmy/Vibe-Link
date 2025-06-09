@@ -73,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم تسجيل الدخول بنجاح",
     ),
     "logoutButton": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "message": MessageLookupByLibrary.simpleMessage("رسالة"),
     "name": MessageLookupByLibrary.simpleMessage("الاسم"),
     "noAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟ "),
     "noDataMessage": MessageLookupByLibrary.simpleMessage(

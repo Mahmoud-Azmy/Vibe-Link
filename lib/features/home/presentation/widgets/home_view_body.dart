@@ -4,8 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vibe_link/core/functions/is_arabic.dart';
 import 'package:vibe_link/core/utils/app_assets.dart';
 import 'package:vibe_link/features/home/data/models/botton_nav_bar_item_model.dart';
+import 'package:vibe_link/features/home/presentation/views/home_feed_section.dart';
+import 'package:vibe_link/features/home/presentation/views/message_feed_section.dart';
 import 'package:vibe_link/features/home/presentation/widgets/custom_floating_action_button.dart';
-import 'package:vibe_link/features/home/presentation/widgets/home_feed_section.dart';
 import 'package:vibe_link/features/home/presentation/widgets/profile_feed_section.dart';
 
 // Cubit for bottom navigation
@@ -30,12 +31,7 @@ class HomeViewBody extends StatelessWidget {
     ),
     BottonNavBarItemModel(
       title: 'Category',
-      launchWidget: Center(
-        child: Text(
-          'Category View',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-      ),
+      launchWidget: MessageScreen(),
       icon: SvgPicture.asset(AppAssets.activeCategory, height: 24, width: 24),
       alternateIcon: SvgPicture.asset(
         AppAssets.inactiveCategory,

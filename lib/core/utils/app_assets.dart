@@ -11,6 +11,9 @@ class AppAssets {
   static const String facebook = 'assets/svgs/facebook_icon.svg';
   static const String hide = 'assets/svgs/Hide.svg';
   static const String show = 'assets/svgs/Show.svg';
+  static const String arrowLeft = 'assets/icons/arrow-left.svg';
+  static const String chatIcon = 'assets/icons/Chat.svg';
+  static const String edit = 'assets/icons/editSquare.svg';
   static const String activeHome = 'assets/icons/active_home.svg';
   static const String inactiveHome = 'assets/icons/Home.svg';
   static const String activeProfile = 'assets/icons/active_profile.svg';

@@ -79,5 +79,6 @@
   "createPost": "إنشاء منشور",
   "addComment": "إضافة تعليق",
   "enterComment": "أدخل تعليقك",
-  "search": "بحث"
+  "search": "بحث",
+  "message": "رسالة"
 }

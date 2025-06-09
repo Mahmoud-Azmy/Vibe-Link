@@ -728,6 +728,11 @@ class S {
   String get search {
     return Intl.message('Search', name: 'search', desc: '', args: []);
   }
+
+  /// `Message`
+  String get message {
+    return Intl.message('Message', name: 'message', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

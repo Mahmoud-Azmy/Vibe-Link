@@ -11,8 +11,9 @@ import 'package:vibe_link/features/auth/presentation/views/sign_up_view.dart';
 import 'package:vibe_link/features/auth/presentation/views/verification_view.dart';
 import 'package:vibe_link/features/home/data/repos/home_repo.dart';
 import 'package:vibe_link/features/home/presentation/controllers/CreatePost/post_cubit.dart';
+import 'package:vibe_link/features/home/presentation/views/add_post_screen.dart';
+import 'package:vibe_link/features/home/presentation/views/chat_view.dart';
 import 'package:vibe_link/features/home/presentation/views/home_view.dart';
-import 'package:vibe_link/features/home/presentation/widgets/add_post_screen.dart';
 import 'package:vibe_link/features/onBoarding/on_boarding.dart';
 
 abstract class AppRouter {
@@ -24,6 +25,7 @@ abstract class AppRouter {
   static const String resetPassword = '/resetPassword';
   static const String setNewPassword = '/setNewPassword';
   static const String createPostView = '/addPost';
+  static const String chatView = '/chatView';
 
   static GoRouter router(String initialRoute) {
     return GoRouter(
@@ -33,6 +35,7 @@ abstract class AppRouter {
           path: onBoarding,
           builder: (context, state) => const OnBoarding(),
         ),
+        GoRoute(path: chatView, builder: (context, state) => const ChatView()),
 
         GoRoute(
           path: createPostView,

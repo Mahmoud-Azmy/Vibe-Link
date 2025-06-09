@@ -79,5 +79,6 @@
   "createPost": "Create Post",
   "addComment": "Add Comment",
   "enterComment": "Enter your comment",
-  "search": "Search"
+  "search": "Search",
+  "message": "Message"
 }
