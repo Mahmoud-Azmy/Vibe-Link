@@ -10,22 +10,32 @@ Built using **Flutter**, this cross-platform app works seamlessly on both iOS an
 
 ## App Structure
 
-![alt text](assets/imgs/image-1.png)
+lib/
+├── core/
+│   ├── components/        # Reusable UI widgets
+│   ├── di/                # Dependency injection setup
+│   ├── errs/              # Error handling classes
+│   ├── functions/         # Utility functions
+│   ├── helper/            # Helper classes/methods
+│   ├── models/            # Base/global models
+│   ├── network/           # Network service logic (e.g., API clients)
+│   ├── theme/             # App-wide theming and styles
+│   └── utils/             # General utilities
+│
+├── features/
+│   ├── featureName/            
+│   ├── data/          # Data layer (models, repositories) 
+│   └── presentation/  # UI layer for home screen 
+│   
+└── main.dart              # App entry point
 
----
-
-## User Flow
-
-![alt text](assets/imgs/image-2.png)
 
 ## 🔧 Features
 
 ✅ Profile creation  
-✅ Story sharing  
 ✅ Feed & post interaction  
-✅ Group/community discovery  
 ✅ Real-time engagement (likes, comments)  
-✅ Dark/Light mode support
+✅ localizations support
 
 ---
 
