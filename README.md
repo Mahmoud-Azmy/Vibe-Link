@@ -12,22 +12,22 @@ Built using **Flutter**, this cross-platform app works seamlessly on both iOS an
 
 lib/
 ├── core/
-│   ├── components/        # Reusable UI widgets
-│   ├── di/                # Dependency injection setup
-│   ├── errs/              # Error handling classes
-│   ├── functions/         # Utility functions
-│   ├── helper/            # Helper classes/methods
-│   ├── models/            # Base/global models
-│   ├── network/           # Network service logic (e.g., API clients)
-│   ├── theme/             # App-wide theming and styles
-│   └── utils/             # General utilities
+│ ├── components/ # Reusable UI widgets
+│ ├── di/ # Dependency injection setup
+│ ├── errs/ # Error handling classes
+│ ├── functions/ # Utility functions
+│ ├── helper/ # Helper classes/methods
+│ ├── models/ # Base/global models
+│ ├── network/ # Network service logic (e.g., API clients)
+│ ├── theme/ # App-wide theming and styles
+│ └── utils/ # General utilities
 │
 ├── features/
-│   ├── featureName/            
-│   ├── data/          # Data layer (models, repositories) 
-│   └── presentation/  # UI layer for home screen 
-│   
-└── main.dart              # App entry point
+│ └── featureName/
+│ ├── data/ # Data layer (models, repositories)
+│ └── presentation/ # UI layer for the feature
+│
+└── main.dart # App entry point
 
 
 ## 🔧 Features
