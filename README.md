@@ -8,33 +8,35 @@ Built using **Flutter**, this cross-platform app works seamlessly on both iOS an
 
 ---
 
-## App Structure
+## 📁 App Structure
 
+````text
 lib/
 ├── core/
-│ ├── components/ # Reusable UI widgets
-│ ├── di/ # Dependency injection setup
-│ ├── errs/ # Error handling classes
-│ ├── functions/ # Utility functions
-│ ├── helper/ # Helper classes/methods
-│ ├── models/ # Base/global models
-│ ├── network/ # Network service logic (e.g., API clients)
-│ ├── theme/ # App-wide theming and styles
-│ └── utils/ # General utilities
+│   ├── components/        # Reusable UI widgets
+│   ├── di/                # Dependency injection setup
+│   ├── errs/              # Error handling classes
+│   ├── functions/         # Utility functions
+│   ├── helper/            # Helper classes/methods
+│   ├── models/            # Base/global models
+│   ├── network/           # Network service logic (e.g., API clients)
+│   ├── theme/             # App-wide theming and styles
+│   └── utils/             # General utilities
 │
 ├── features/
-│ └── featureName/
-│ ├── data/ # Data layer (models, repositories)
-│ └── presentation/ # UI layer for the feature
+│   └── featureName/
+│       ├── data/          # Data layer (models, repositories)
+│       └── presentation/  # UI layer (controllers, views, widgets)
 │
-└── main.dart # App entry point
+└── main.dart              # App entry point
+
 
 
 ## 🔧 Features
 
-✅ Profile creation  
-✅ Feed & post interaction  
-✅ Real-time engagement (likes, comments)  
+✅ Profile creation
+✅ Feed & post interaction
+✅ Real-time engagement (likes, comments)
 ✅ localizations support
 
 ---
@@ -60,4 +62,4 @@ UI Kit Source: [Figma - Social App UI Kit](https://www.figma.com/design/RptfnnQ1
 1. Clone the repo:
    ```bash
    git clone https://github.com/yourusername/vibelink.git
-   ```
+````
