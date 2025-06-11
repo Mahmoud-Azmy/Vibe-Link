@@ -30,7 +30,7 @@ lib/
 │
 └── main.dart              # App entry point
 
-
+````
 
 ## 🔧 Features
 
